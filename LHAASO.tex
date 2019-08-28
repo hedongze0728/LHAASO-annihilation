@@ -1,4 +1,5 @@
-\documentclass[12pt,prd,showpacs,amsmath,amssymb,aps,floats,floatfix,nofootinbib]{revtex4-1}
+\documentclass[12pt,aps,prd,amsmath,amssymb,showpacs,floats,floatfix,nofootinbib]{revtex4-1}
+%%compile with xelatex%%
 \usepackage[colorlinks=true, linkcolor=red, citecolor=blue,CJKbookmarks=true]{hyperref} % should be commented out when submitting to arXiv!!!
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{graphicx}
@@ -6,701 +7,563 @@
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{slashed} % slash mark
 \usepackage{url}
+%\usepackage{apalike}
 \usepackage{subfigure}
+\usepackage{threeparttable}
 \usepackage{multirow} % multirows in tabular environment
 \usepackage{setspace} % spacing
-%\usepackage{ctex}
 \graphicspath{{figs/}}  % figure path
-
 \setcounter{MaxMatrixCols}{30}
 
 \def\blue#1{{\textcolor{blue}{#1}}} % blue color
 \def\red#1{{\textcolor{red}{#1}}} % red color
-\def\green#1{{\textcolor{green}{#1}}} % green color
-\def\cm{\mathrm{cm}} % cm
-\def\sec{\mathrm{s}} % s
-\def\fb{\mathrm{fb}} % fb
-\def\pb{\mathrm{pb}} % pb
-\def\ab{\mathrm{ab}} % ab
-\def\ifb{\mathrm{fb}^{-1}} % fb^-1
-\def\ipb{\mathrm{pb}^{-1}} % pb^-1
-\def\iab{\mathrm{ab}^{-1}} % ab^-1
+\newcommand{\greenbf}[1]{\textcolor[rgb]{0,.6,0}{\textbf{#1}}} % green bold color
+\newcommand{\green}[1]{\textcolor[rgb]{0,.6,0}{#1}} % green color
 \def\TeV{\mathrm{TeV}} % TeV
 \def\GeV{\mathrm{GeV}} % GeV
 \def\MeV{\mathrm{MeV}} % MeV
 \def\keV{\mathrm{keV}} % keV
-\def\pT{p_\mathrm{T}} % p_T
-\def\HT{H_\mathrm{T}} % H_T
-\def\missET{\slashed E_\mathrm{T}} % missing E_T
-\def\missE{\slashed E} % missing E
+\def\kpc{\mathrm{kpc}} % keV
+\def\Mpc{\mathrm{Mpc}} % keV
+\def\eV{\mathrm{eV}} % keV
+\def\um{\mu\mathrm{m}} % keV
+\def\cm{\mathrm{cm}} % keV
 
 \makeatother
-
 \allowdisplaybreaks % allow eqnarray breaks
-
 
 \begin{document}
 
 \setstretch{1.2} % line spacing
-\title{on dark matter annihilation limits from  the LHAASO gamma-ray observation of dwarf Spheroidal galaxies}
+\title{Prospect for dark matter annihilation signatures from gamma-ray observation of dwarf galaxies by LHAASO}
 
-\author{xxx$^1$}
-%\author{Xiao-Jun Bi$^2$}
-\author{xxx$^2$}
-%\author{Xin Zhang$^1$}
-\affiliation{$^1$Department of Physics, College of Sciences, Northeastern University, Shenyang 110004, China}
-\affiliation{$^2$Key Laboratory of Particle Astrophysics,Institute of High Energy Physics, Chinese Academy of Sciences,
-Beijing 100049, China}
-
+\author{Dong-Ze He$^1$}
+\author{Xiao-Jun Bi$^{2,3}$}
+\author{Su-Jie Lin$^2$}\email{linsj@ihep.ac.cn}
+\author{Peng-Fei Yin$^2$}
+\author{Xin Zhang$^{1,4}$}\email{zhangxin@mail.neu.edu.cn}
+\date{\today}
+\affiliation{$^1$Department of Physics, College of Sciences, Northeastern University, Shenyang 110819, China}
+\affiliation{$^2$Key Laboratory of Particle Astrophysics, Institute of High Energy Physics, Chinese Academy of Sciences, Beijing 100049, China}
+\affiliation{$^3$School of Physical Sciences, University of Chinese Academy of Sciences, Beijing 100049, China}
+\affiliation{$^4$Center for High Energy Physics, Peking University, Beijing 100080, China}
 
 
 \begin{abstract}
-LHAASO (Large High Altitude Air Shower Observation) is a new generation wide field of view observatory to research on high energy gamma ray astronomy with unprecedented sensitivity in the energy range between 300 GeV to 1 PeV. So, it will be able to perform diverse indirect researches on dark matter annihilation.
-Among the most promising targets for the indirect detection of dark matter are dwarf spheroidal galaxies (dSph). These objects are expected to possess few astrophysical sources of gamma rays but high dark matter content, making them ideal laboratories for an indirect dark matter detection with gamma rays. In this work, in light of the simulated integral flux sensitivity for LHAASO as well as its correlation with declinations, we perform individual limits on the annihilation cross section for selected dSphs within the LHAASO field-of-view. We find that, LHAASO will be able to constrain a large part of parameter space if no signal would be detected for its one year's observation.
-
-
+Large High Altitude Air Shower Observatory (LHAASO) is a next generation observatory for high energy gamma-rays and cosmic rays with wide field of view. It will detect gamma-rays with high sensitivity in the energy range from 300 GeV to 1 PeV. Therefore it is promising for LHAASO to search for the high energy gamma-rays induced by dark matter (DM) self-annihilation in dwarf spheroidal satellite galaxies (dSphs), which are ideal objects for the DM indirect detection. In this work, we investigate the LHAASO sensitivity to DM self-annihilation signatures for nineteen dSphs and take the uncertainties on the spatial DM distribution of dSphs into account. We perform a joint likelihood analysis for the nineteen dSphs and find that the LHAASO sensitivity to the DM annihilation cross section will reach $\mathcal{O}(10^{-24})\sim \mathcal{O}(10^{-25})$ cm$^3$ s$^{-1}$ at the mass scale above TeV for several annihilation modes, which is larger than the canonical thermal relic cross section by a factor of 10 to 100.
 \end{abstract}
-
-
 
 \maketitle
 
 
-%\renewcommand{\thefootnote}{\arabic{footnote}} \setcounter{footnote}{0}%
-%\baselineskip 16pt
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
-A lot of compelling astrophysical and cosmological observations have been carried out in recent years, and almost all indicated the existence of some form of non-baryon cold dark matter (CDM), which can be used to explain the observed large-scale structure and constitutes nearly 25\% of the energy budget of the universe, with the universal baryons only occupying 4.8\% and the rest being dark energy \cite{Adam:2015rua}. In spite of the acknowledged existence of dark matter (DM), we still have a poor understanding about its fundamental properties as an elementary particle, and about whether or not it interacts with Standard Model particles other than via gravity. To unveil these mysteries, many new physics models have been proposed by the theoretical physicists, among which a popular DM candidate is the weakly interacting massive particle (WIMP) \cite{Jungman:1995df,Bergstrom:2000pn,Bertone:2004pz}. %5In the thermal freeze-out scenario, the current abundance of WIMPs can successfully explain the observed DM relic density.
+\section{Introduction}\label{sec:intro}
+A lot of compelling astrophysical and cosmological observations have indicated the existence of non-baryonic cold dark matter (CDM),
+which constitutes nearly 25\% of the energy budget of the universe \cite{Adam:2015rua}.
+DM is essential in the evolution of Universe and the formation of large-scale structures. However, in spite of the acknowledged existence of DM, we still have a poor understanding about its fundamental properties as an elementary particle, and do not know its interaction with the Standard Model particles other than gravity. In order to reveal these mysteries, many new physics models have been proposed in the literature, among which a popular kind of the DM candidate is the weakly interacting massive particles (WIMPs) \cite{Jungman:1995df,Bergstrom:2000pn,Bertone:2004pz}.
 
-Such WIMPs are predicted to either annihilate or decay (however, we will not consider decay here) and then produce some steady and energetic Standard Model particles, such as antiprotons, electrons/positrons, neutrinos, photons and so forth. One kind of the mainstream DM identification methods, the indirect DM detection, is just to search for such non-gravitational signals
-and then to further reveal the physical properties of DM. Particularly, the observations of high-energy $\gamma$-ray emissions produced from WIMPs annihilation, either monoenergetically (from direct annihilation) or with a continuum of energies (through annihilation into intermediate states), are of great interest and importance, for the reason that the propagation process of $\gamma$ rays is not deflected by the interstellar magnetic field and can naturally trace back to the sites where the annihilation occurs. As the annihilation rate is proportional to the square of DM density distributions, these $\gamma$ rays signatures would be preferentially generated in the DM dominated regions, and then can be captured by terrestrial and satellite experiments, for example the space-borne $\gamma$-ray detector Fermi Large Area Telescope (Fermi-LAT) and the next generation ground-based experiment, the Chinese project named ``large high altitude air shower observatory" (LHAASO) \cite{Cao:2010zz,Cao:2014rla}.
-
-Hitherto, quite a number of works have been performed to study the $\gamma$ ray signatures from DM annihilation in many different dark-matter-rich astrophysical sources, such as the galaxy clusters \cite{Ackermann:2010rg}, galactic halo \cite{Hooper:2011ti,Ackermann:2012rg,Abazajian:2012pn,Abdo:2010nc,Ackermann:2012qk,Weniger:2012tx,Ackermann:2013uma}, galactic DM substructures \cite{Zechlin:2011kk,Ackermann:2012nb,Zechlin:2012by} etc. Since there is no significant $\gamma$ ray excess to date has been confirmed, the stringent upper limits on DM annihilation cross section have been reported in the literature \cite{Abdo:2010ex,Ackermann:2011wa,GeringerSameth:2011iw,Cholis:2012am,GeringerSameth:2012sr,Mazziotta:2012ux,Baushev:2012ke,Huang:2012yf,Ackermann:2013yva,Ackermann:2015zua,Tsai:2012cs}.
-However, among these objects, dwarf spheroidal satellites (dSphs) of the Milky Way, the largest galactic substructures predicted by the CDM scenario, are considered to be the most promising and ideal laboratories for indirect searches of DM. The reasons are as follows. Firstly, the mass-to-light ratios in dSphs can be of very large order of magnitude, which suggests that they are largely dark matter dominated systems. In addition, besides their close proximity, dSphs are also expected to be relatively free from  $\gamma$ ray emission from other astrophysical sources as they have no detected neutral or ionized gas, and little or no recent star formation activity \cite{Mateo:1998wg,Grcevich:2009gt}, which will simplify the interpretation of a $\gamma$-ray excess able to be detected in the direction of a dSph.
-Therefore, drawing attention to the $\gamma$ signals from dSphs should be an important and interesting idea for the DM indirect detection.
-%by the Fermi-LAT observational data which is sensitive to $\gamma$ rays in the range from 20 $\MeV$ to 300 $\GeV$. in this energy range
-
-On the other hand, during the past twenty years, the achievements in Gamma Ray astronomy either in the GeV range with space-borne instruments or in the TeV region with ground-based detectors, produced extraordinary advances in high energy astrophysics. But for the gamma ray sky with energies above a few tens of TeV, the past and present telescopes can only record few high energy photons, which makes this energy region almost completely unexplored.
-Under such circumstance, a strong interest is addressed to the development of next-generation instruments able to make more precise observations in a more extended energy range with a better sensitivity.
-Currently, the most sensitive detectors for very high energy (VHE) $\gamma$-ray observations are imaging air Cherenkov telescopes (IACTs), such as H.E.S.S, VERITAS and MAGIC. But the sensitivity of IACTs will be limited by their small field-of-view (FOV) and short operation duty-cycle. The ground-based air shower particle detectors, such as Tibet-AS$\gamma$ and ARGO-YBJ may overcome those disadvantages of IACTs, but the poor background rejection power still limits their sensitivity of $\gamma$ ray detection. One of the reasonable methods to improve the sensitivity of the ground-based array detectors is to detect the muons in the shower, such as the Muon Detector of Tibet-AS$\gamma$ experiment. Besides, the water Cherenkov detectors Milagro and high altitude water Cherenkov (HAWC) also take advantage of the muon information to discriminate photons from cosmic rays.
-Most importantly, however, the under-construction LHAASO project, designed to maintain a high sensitivity as well as a strong background rejection power ($\sim1\%$) and a large FOV ($\sim$2 sr) simultaneously, will become a continuously-operated gamma-ray telescope at energies from $\sim$ 300 GeV to 1 PeV, opening a new window for the gamma ray detection.
-In a word, the LHAASO design with unprecedented sensitivity makes this detector extremely competitive in the Gamma Ray astronomy with energy range above a few tens of TeV.
-%experiment for very high energy $\gamma$ ray detections. under-construction, coincident with,From the above
-So, through the VHE gamma-ray observation from dwarf galaxies with LHAASO, it would be very efficient and profound to give strict limits on the properties of heavy DM.
-In this study, we will investigate the perspective of LHAASO about the potential of constraining DM annihilation from the dwarf galaxies gamma ray observations. Note that these are the first limits on the DM annihilation cross section based on LHAASO.
-
-The rest of this paper is organized as follows. In Sec.\ref{sec 2}, we will give a brief introduction to the LHAASO experiment. In Sec.\ref{sec 3}, we discuss the limit approach to DM annihilation and give our analysis of the results. Finally, we give a conclusion in Sec.\ref{sec conclu}.
+WIMPs could either annihilate\footnote{In this paper, we only focus on Majorana WIMPs instead of the Dirac WIMPs, thus all the ``annihilation'' mentioned in the following would refer in particular to self-annihilation.} or decay in astrophysical systems today, and then produce steady and energetic Standard Model particles, such as protons/antiprotons, electrons/positrons, neutrinos, and photons. One kind of current DM identification methods, namely the indirect DM detection, is just to search for such non-gravitational signals
+and to further reveal the physical properties of DM particles. Particularly, the observations of high-energy gamma-ray emissions produced by DM annihilation, either mono-energetic (from direct annihilation) or with a continuum of energies (through the cascade decays or final state radiations), are of great interest and importance, because the process of gamma-rays propagation is not deflected by the interstellar magnetic field and can naturally trace back to the sites where DM annihilations occur. As the DM annihilation rate is proportional to the square of DM density distributions, these gamma-ray signatures would be preferentially generated in the DM dominated regions, and then can be detected by terrestrial and satellite experiments.
 
 
-\section{LHAASO Observatory}\label{sec 2}
-LHAASO ($100^{\circ}.01$E, $29^{\circ}.35$N) is a hybrid cosmic ray and $\gamma$ ray observatory that will be constructed at 4410m above sea level near the Daocheng village, in Sichuan province, China. LHAASO experiment is composed of a $\rm km^{2}$ particle detector array (KM2A) containing the underground muon detectors, a water Cherenkov detector array (WCDA), a wide field Cherenkov telescope array (WFCTA) and a high threshold shower core detector array (SCDA). KM2A is primarily designed for the detection of very high energy $\gamma$ ray ($E\gtrsim10$ TeV). The surface array consists of 5195 scintillator electron detectors with 1 $\rm m^{2}$ each and a spacing of 15 m. The large effective area of $\sim$ $\rm km^{2}$ of the surface detectors could provide enough exposure for the photons with high energies. With the purpose of rejecting the cosmic ray background, 1171 muon detectors with 36 $\rm m^{2}$ each and a spacing of 30 m will be built under the surface detector array, with the total active area being up to 40000 $\rm m^{2}$. For the energies above 50 TeV, KM2A will achieve a background free detection of photons and make LHAASO become the most sensitive observatory around the world. WCDA, located at the center of KM2A array, is attributed to the $\gamma$ ray detection in the lower energy range ($\lesssim$ 10 TeV). It is comprised of four water pools with 150 $\times$ 150 $\rm m^{2}$ each, and the total active area is 90000 $\rm m^{2}$ which is 4.5 times larger than that of HAWC. In addition, WFCTA and SCDA are dedicated to measure the cosmic ray spectra of individual composition, providing a multi-parameter measurement in order to better distinguish different compositions. Thereinto, WFCTA can detect the longitude evolution of a cosmic ray shower, and SCDA can detect the shower components near the core. The $\gamma$ ray sensitivity of LHAASO is shown in Fig.\ref{fig:integral-sensi}~\cite{Cao:2014rla}. In this figure, the exposure time is one year for air shower array experiments and 50 hours for IACTs. It is shown that for energies above 20 TeV, LHAASO will be the most sensitive $\gamma$ ray experiment in the world. The three major goals of LHAASO are: (1) surveying the very high energy $\gamma$ ray sky with a sensitivity of $\sim1\%$ of the Crab Nebula flux, (2) precisely measuring the cosmic ray spectrum of individual composition at the knee region and beyond (3) exploring the new physics frontiers. For the layout of the detectors and a more detailed description of the experiment, refer to Refs \cite{Cao:2010zz,Cao:2014rla}.
+Hitherto, quite a number of works have been performed to study the gamma-ray signatures from DM annihilation in many different dark-matter-rich astrophysical objects, such as galaxy clusters \cite{Ackermann:2010rg}, galactic halo \cite{Hooper:2011ti,Ackermann:2012rg,Abazajian:2012pn,Abdo:2010nc,Ackermann:2012qk,Weniger:2012tx,Ackermann:2013uma}, galactic DM substructures \cite{Zechlin:2011kk,Ackermann:2012nb,Zechlin:2012by}, etc. Since there is no significant gamma-ray excess to date that has been confirmed, the stringent upper limits on the DM annihilation cross section have been reported in the literature \cite{Abdo:2010ex,Ackermann:2011wa,GeringerSameth:2011iw,Cholis:2012am,GeringerSameth:2012sr,Mazziotta:2012ux,Baushev:2012ke,Huang:2012yf,Ackermann:2013yva,Ackermann:2015zua,Tsai:2012cs}.
+Among these astrophysical objects, the dwarf spheroidal satellites (dSphs), known as large galactic substructures surrounding the Milky Way, are considered to be the most promising and ideal laboratories for the indirect DM detection. Firstly, the mass-to-light ratios in dSphs can be of very large order of magnitude, which suggests that they are significantly DM dominated systems. Secondly, dSphs are also expected to be relatively free of gamma-ray emission from other astrophysical sources, since they have little or no recent star formation activity and detected ionized gas \cite{Mateo:1998wg,Grcevich:2009gt}. These outstanding advantages could extremely simplify the interpretation of a gamma-ray excess potentially detected in the direction of a dSph.
 
-The most relevant detectors for $\gamma$-ray detection of LHAASO are KM2A and WCDA. Thanks to the large area of the array KM2A and the high capability of background rejection, LHAASO can reach sensitivities for $\gamma$ rays with energies above $\sim$ 30 TeV about 100 times higher than that of current experiments, offering the possibility to monitor the gamma ray sky up to 100 TeV for the first time,
-and thus is preferably effective for the detection of Galactic source.
-The threshold energy of WCDA can be as low as $\sim$ 300 GeV and could be effective for the extragalactic sources.
-We focus on the discussion of WCDA and KM2A in this paper.
+During the past several decades, the achievements in Gamma Ray astronomy either in the GeV range with space-borne instruments or in the TeV region with ground-based detectors, produced extraordinary advances in high energy astrophysics. However, for the gamma-ray sky in the energy range above a few tens of TeV, the past and present telescopes can only record few photons, which makes this energy region almost completely unexplored.
+Under this circumstance, a strong interest is addressed to the development of next-generation instruments, which are able to make more precise observations in a more extended energy range with a high sensitivity.
+Currently, the most sensitive detectors for very high energy (VHE) gamma-rays are imaging air Cherenkov telescopes (IACTs), such as H.E.S.S \cite{Hinton:2008zz}, VERITAS \cite{Furniss:2012zz} and MAGIC \cite{Albert:2007xh}. But the sensitivity of IACTs would be limited by their small field of view (FOV) and short operation duty cycle. The ground-based air shower particle detectors, such as Tibet-AS$\gamma$ and ARGO-YBJ may overcome those disadvantages of IACTs, but the poor background rejection power still limits their sensitivities. One of the reasonable methods to improve the sensitivity of the ground-based array detectors is to detect muons in the shower, such as the Muon Detector of Tibet-AS$\gamma$ experiment.
+%Besides, the water Cherenkov detectors Milagro and high altitude water Cherenkov (HAWC) also take advantage of the muon information to discriminate photons from cosmic rays.
 
-\section{Limits on DM annihilation cross section}\label{sec 3}
-In this section, we will give a rough estimation on the constrain potential of DM annihilation cross section through the LHAASO gamma ray observation of dSphs.
-The simulated integral flux sensitivity curve of LHAASO project for the gamma ray observation of Crab-like sources is shown in Fig \ref{fig:integral-sensi}, with the sensitive curves for other projects also shown in the same figure for comparison.
-In light of the integral flux sensitivity of LHAASO, we can calculate the upper limits of the DM annihilation cross section for several specifically selected DM particle mass. In Table \ref{tab1}, we summarize the characteristics of confirmed dSphs with locations inside the FOV of LHAASO (defined as the declination range $-11^{\circ}<\delta<69^{\circ}$). Taking into account the correlation between the integral sensitivity and the declination of astrophysical source, on the strength of the results of experiment simulation, we find that Segue 1 dwarf galaxy is the most suitable source for the indirect DM detection with the observation of gamma ray emission due to its large $J$ factor and close flux sensitivity to the Crab-like source as well as the closest zenith angle.
-In this study, we will discuss how to constrain the gamma ray signal from Segue 1 by the LHAASO experiment.
+Most importantly, the under-construction large high altitude air shower observatory (LHAASO) project \cite{Cao:2010zz,Cao:2014rla}, will become a continuously-operated gamma-ray telescope at energies from $\sim$ 300 GeV to 1 PeV and open a new window for the gamma-ray detection.
+LHAASO is designed to maintain a high sensitivity as well as a strong background rejection power ($\sim1\%$) and a large FOV ($\sim$~2 sr) simultaneously.
+Therefore, through the VHE gamma-ray observation from dSphs by LHAASO, it is very promising to detect the DM annihilation signatures or set strong limits on the properties of heavy DM.
+From such a point of view, we investigate the prospects for detecting the DM annihilation signature by the LHAASO observations of nineteen dSphs. We also take the uncertainties of the $J$-factor of dSphs into account \cite{Geringer-Sameth:2014yza,Hutten:2016jko}, and study the impact of these uncertainties on the LHAASO sensitivity. In order to derive a reasonable sensitivity, the simulated data of LHAASO considering the background rejection power are also used.
 
-The $\gamma$ ray flux from dark matter pair annihilation in a dSph is given by:
-\begin{equation}\label{flux}
-\Phi(\psi)=
-%\frac{1}{4\pi}\frac{\langle\sigma v\rangle}{2m_{\chi}^{2}}\left(\frac{dN}{dE}\right) _{\gamma}\int_{l.o.s}\int_{\Delta\Omega}\rho^{2}(x)dl(\psi)d\Omega=
-\frac{1}{4\pi}\frac{\langle\sigma v\rangle}{2m_{\chi}^{2}}\int^{E_{max}}_{E_{min}}\frac{dN_{\gamma}}{dE_{\gamma}}dE_{\gamma}\cdot J(\psi),
+It is difficult to detect the annihilation signals from thermally produced DM particles by LHAASO or other cherenkov detectors, as the annihilation cross section required by the thermal relic density is much smaller than the experimental reach. However, if DM particles are produced non-thermally, they can still have a large annihilation cross section. There have been many non-thermal mechanisms proposed in the literature. For instance, the DM particles can be produced as the decay products of heavy particles, Q balls or cosmic strings (see e.g.~\cite{Moroi:1999zb,Fujii:2002kr,Jeannerot:1999yn} and references therein). It is meaningful to search for the signatures from these DM particles in the future indirect detection experiments.
+
+This paper is organized as follows. In Sec. \ref{sec:LHAASO}, we give a brief introduction to the LHAASO experiment. In Sec.   \ref{sec:method}, we discuss the calculation of gamma-ray flux from DM annihilation and introduce the methods of simulating the gamma-ray observation and of calculating the limits on DM annihilation cross section. We show the LHAASO sensitivities to the DM annihilation cross section and make comparison with other experimental results in Sec. \ref{sec:dm-limit}. Finally, the conclusion is given in Sec.  \ref{sec:conclu}.
+
+\section{LHAASO Observatory}\label{sec:LHAASO}
+LHAASO is a hybrid cosmic ray and gamma-ray observatory located at 4410 m above sea level near Daocheng, Sichuan province, China ($100^{\circ}.01$E, $29^{\circ}.35$N). LHAASO experiment is composed of a square kilometer particle detector array (KM2A), a water Cherenkov detector array (WCDA), a wide field Cherenkov telescope array (WFCTA), and a high threshold shower core detector array (SCDA).
+
+KM2A is primarily designed for the detection of very high energy gamma-rays ($E\gtrsim10$ TeV). The surface array consists of 5195 scintillator electron detectors with 1 $\rm m^{2}$ each and a spacing of 15 m. The large effective area of $\sim$ $\rm km^{2}$ of the surface detectors could provide enough exposure for the photons with high energies. With the purpose of rejecting the cosmic ray background, 1171 underground muon detectors with 36 $\rm m^{2}$ each and a spacing of 30 m will be built under the surface detector array, with the total active area being up to 40000 $\rm m^{2}$. For the energies above 50 TeV, KM2A will achieve a background free detection of photons and make LHAASO become the most sensitive observatory around the world.
+
+WCDA, located at the center of KM2A array, is attributed to the gamma-ray detection in the lower energy range $\lesssim$ 20 TeV. It is comprised of four water pools with 150 $\times$ 150 $\rm m^{2}$ each, and the total active area is 90000 $\rm m^{2}$ which is 4.5 times larger than that of HAWC. In addition, WFCTA and SCDA are dedicated to measure the cosmic ray spectra of individual composition, providing a multi-parameter measurement in order to better distinguish between different compositions. Thereinto, WFCTA can detect the longitude evolution of a cosmic ray shower, and SCDA can detect the shower components near the core.
+
+The gamma-ray sensitivity of LHAASO to a Crab like source is shown in Fig. \ref{fig:integral-sensi}~\cite{Cao:2014rla}. In this figure, the exposure time is one year for air shower array experiments and 50 hours for IACTs. It is shown that for energies above 20 TeV, LHAASO will be the most sensitive gamma-ray experiment in the world. The three major goals of LHAASO are: (1) surveying the very high energy gamma-ray sky with a sensitivity of $\sim1\%$ of the Crab Nebula flux, (2) precisely measuring the cosmic ray spectrum of individual composition at the knee region and beyond, and (3) exploring the new physics frontiers. For the layout of the detectors and a more detailed description of the experiment, we refer the reader to Refs. \cite{Cao:2010zz,Cao:2014rla}.
+
+\begin{figure*}
+\includegraphics[width=0.70\textwidth]{sensitivity.eps}
+\caption{Simulated integral sensitivity of LHAASO for a Crab-like source, compared with the sensitivities of other experiments \cite{Acharya:2013sxa,Cao:2014rla}. The observation times are 1 year and 50 hours for wide field of view detectors and IACTs, respectively.}
+\label{fig:integral-sensi}
+\end{figure*}
+
+The most relevant detectors for gamma-ray detection of LHAASO are KM2A and WCDA. Thanks to the large area of the array KM2A and the high capability of background rejection, LHAASO can reach sensitivities for gamma-rays with energies above $\sim$ 30 TeV, about 100 times higher than that of current experiments, offering the possibility to monitor the gamma-ray sky up to 100 TeV for the first time,
+and thus is preferably effective for the detection of gamma-rays from Galactic source.
+The threshold energy of WCDA can be as low as $\sim$ 300 GeV and thus it could be effective for the extragalactic sources.
+As it is still under-construction, in this paper we exclusively focus on the discussion about the prospects of searching for heavy annihilating DM particles above TeV from the LHAASO gamma-ray observation of dSphs.
+
+\section{Analysis method}\label{sec:method}
+
+\subsection{Gamma-ray fluxes from DM annihilation in dSphs}\label{sec:gamma-flux}
+The expected gamma-ray flux from DM annihilation is calculated with the utilization of not only the astrophysical properties of the potential DM distribution, but also the properties of the initial and final state particles in different annihilation channels. For self-conjugate DM particles, the gamma-ray integral flux from the pair annihilation of DM particles in a dSph (point-like source) can be given by
+\begin{equation}\label{func:anni-flux}
+\Phi=\frac{1}{4\pi}\frac{\langle\sigma v\rangle}{2m_{\chi}^{2}}\int^{E_{\rm max}}_{E_{\rm min}}\frac{dN_{\gamma}}{dE_{\gamma}}dE_{\gamma} \times J,
 \end{equation}
-where $m_{\chi}$ is the mass of the DM particle, $\langle\sigma v\rangle$ is the thermal average annihilation cross section, $\frac{dN_{\gamma}}{dE_{\gamma}}$ is the differential spectrum of prompt $\gamma$ photons resulting in DM particle annihilation. The $J$ is the astrophysical ``J-factor", the line of sight ($l.o.s$) integral of the DM density squared in the region of interest (ROI), which is described by
-\begin{equation}\label{jfactor}
-J(\psi)=\int_{l.o.s}\int_{\Delta\Omega}\rho^{2}(x)dl(\psi)d\Omega,
-\end{equation}
-where the $\Delta\Omega$ denotes the solid angle over which the J-factor is calculated. Note that the $\frac{dN_{\gamma}}{dE_{\gamma}}$ should be a sum of the photons from all possible DM annihilation final states according to the DM model. Here we only consider the $\gamma$ ray contribution from a certain annihilation channel through the use of the PPPC4DM package \cite{Cirelli:2010xx,Ciafaloni:2010ti}. The $J$ factor can be derived from the observed line-of-sight velocities of the stars through the use of Jeans equation.
-Numerous works have indicated that the $J$ factor is not sensitive to the certain DM density profile. For example, the $J$ factor of Draco for Navarro-Frenk-White is similar with that for the Burkert profile.
-In this paper, we take the values of $J$ factors and their uncertainties from Table I of Ref. \cite{Fermi-LAT:2016uux}.
+where $m_{\chi}$ is the DM mass, $\langle\sigma v\rangle$ is the thermal average velocity-weighted DM annihilation cross section, $\frac{dN_{\gamma}}{dE_{\gamma}}$ is the differential spectrum of prompt photons resulting from DM annihilation, and the integration is for each energy bins between $E_{\rm min}$ and $E_{\rm max}$. Note that $\frac{dN_{\gamma}}{dE_{\gamma}}$ should be a sum of all the photons from any possible DM annihilation final states according to the DM model. However, in this analysis we only hypothesize the gamma-ray contribution from a certain annihilation channel through the use of the {\tt PPPC4DM} package \cite{Cirelli:2010xx,Ciafaloni:2010ti}.
 
-%$e^{+}e^{-}$, $\mu^{+}\mu^{-}$, $\tau^+\tau^-$, $u\bar{u}$, $b\bar{b}$, $W^+W^-$, $4\mu$, $4\tau$, $4e$.
-In the present work, we artificially select several various data points with uniform interval on the integral sensitivity curves for LHAASO-WCDA and LHAASO-KM2A respectively. Based on these data points, we could deduce the minimum values of the annihilation cross sections for different DM particle masses. Hence, for either LHAASO-WCDA or LHAASO-KM2A, the constraints on DM annihilation cross section via nine different annihilation channels can be shown in FIG. \ref{fig:Lhaaso-wcda-km2a}. From this figure, we can see that, in the annihilation channels $e^{+}e^{-}$, $\mu^{+}\mu^{-}$, $W^+W^-$, $4\mu$ and $4e$, LHAASO-KM2A will place more stringent constraints on annihilation cross section than that of LHAASO-WCDA when the DM mass is larger than a few tens of TeV. This can be clearly understood by the LHAASO design concept. KM2A is more sensitive to the high energy gamma photons with energies larger than 10 TeV, so it may give a stronger constraint on the DM annihilation cross section at high DM mass range. But, as for the channels $b\bar{b}$, u$\bar{\rm u}$ and $4\tau$, throughout the whole mass range between 1 TeV to 100 TeV, the constraint from WCDA is always stronger than that from KM2A. However, the evolutionary tendency is still pretty obvious, we can rationally predict that the constraint from KM2A will become stronger than that for WCDA at higher DM mass.
-In FIG.~\ref{fig:Lhaaso}, we also plot the upper limits on DM annihilation cross section as a function of the DM mass. We can see that, if no signal is detected for one year's observation, LHAASO  will be able to constrain a large part of parameter space.
+In Eq.~(\ref{func:anni-flux}), $J$ represents the astrophysical ``$J$-factor",  which is the integral of the DM density squared along the line of sight ($\rm l.o.s$) distance $x$ in the region of interest (ROI)
+\begin{equation}\label{func:jfactor}
+%J(\psi)=\int_{l.o.s}\int_{\Delta\Omega}\rho^{2}(r)dl(\psi)d\Omega,
+J=\int_{\rm source}d\Omega\int_{\rm l.o.s} dx\rho^{2}(r(\theta,x)),
+\end{equation}
+where $\Omega$ denotes the solid angle of the observation region over which the $J$-factor is calculated,
+and can be expressed as $\Delta \Omega=2\pi\times[1-\cos\alpha_{\rm int}]$, where $\alpha_{\rm int}$ is the integration angle.
+The density profile $\rho{(r)}$ describes how the density of a astrophysical system varies with the distance $r$ from its center, which is given by
+\begin{equation}
+  r(\theta,x)=\sqrt{R^{2}-2xR\cos\theta+x^{2}},
+\end{equation}
+where $R$ is the distance from the Earth to the source center, and $\theta$ is the angle between the orientation to the center of source and the line of sight.
+
+The DM density profile of dSphs can be derived from the kinematic observation of stellar velocities through the use of the Jeans equation (see e.g. Refs. \cite{Evans:2003sc,Strigari:2007at,Martinez:2009jh}). There are several systematic and statistical uncertainties in the determination of the DM density profile and $J$-factor. For instance, the stellar surface brightness and velocity anisotropy profiles are required in the Jeans analysis, but these profiles have not been uniquely determined. For the ultra-faint dSphs with large $J$-factors which are of interest to the indirect detection, the lack of kinematic data would also induce large statistical uncertainties in the $J$-factor. The discussions on the systematic uncertainties in the $J$-factor of dSphs can be found in Refs. \cite{Lefranc:2016dgx} and the references therein.
+
+In this work, we take the calculated mean values of $J$-factor and their statistical uncertainties of nineteen dSphs in Table \ref{Table:dsphs}~\cite{Geringer-Sameth:2014yza,Hutten:2016jko}.
+In Ref.~\cite{Geringer-Sameth:2014yza}, the $J$-factors are calculated by using the Zhao profile \cite{Hernquist:1990be,Zhao:1995cp}, which is parameterized as\
+\begin{equation}
+\rho(r)=\frac{\rho_s}{(r/r_s)^\gamma[1+(r/r_s)^\alpha]^{(\beta-\gamma)/\alpha}},
+\end{equation}
+where $\rho_s$, $r_s$, $\alpha$, $\beta$ and $\gamma$ are free parameters. For $(\alpha, \beta, \gamma)=(1,3,1)$, this profile becomes the standard NFW profile. However, this profile can also describe the cored halo for $\gamma\sim 0$. In principle, the free parameters in the profile can be extracted in the Jeans analysis of dSph kinematics, and then be used to derive the median value and credible interval of the $J$-factor. The other typical profile used in Ref.~\cite{Hutten:2016jko} is the Einasto profile~\cite{Graham:2005xx}, which is parameterized as
+\begin{equation}
+\rho(r)=\rho_{-2}\left\{ -\frac{2}{\alpha}\left[\left(\frac{r}{r_{-2}}\right)^\alpha-1\right] \right\},
+\end{equation}
+where $\rho_{-2}$, $r_s$, $r_{-2}$ and $\alpha$ are free parameters. As discussed in Ref.~\cite{Bonnivard:2014kza}, the results given by these two typical kinds of profiles are in very good agreement.
+
+Notice that there are two sets of $J$-factors in Refs.~\cite{Geringer-Sameth:2014yza,Hutten:2016jko}, of which the one is derived with a constant integration angle $\alpha_{\rm int}=0.5^\circ$, and the other is derived with the integration angle which equals to the maximum angular radius $\alpha_{\rm int}=\theta_{\rm max}$. The maximum angular radius $\theta_{\rm max}$  of each source is indicated by their outermost member star in the current observation. As the annihilation contribution of the gamma-ray signals which is proportional to the DM squared density ($\rho^2$), would concentrate more around the center of the dSphs, a smaller integration angle would always lead to a larger signal-to-background ratio in this work.
+Therefore, in Table.~\ref{Table:dsphs}, we choose the $J$-factor within a smaller integration angle as $\alpha_{\rm int}=\min\{\theta_{\rm max},0.5\}$.
+%\footnote{\red{Generally, $\theta_{\rm max}={\rm arcsin}\,(r_{\rm max}/D)$, where $r_{\rm max}$ is an estimate of distance from the center of dSph to the outermost member star and $D$ is the distance from Earth to the dSph.}}
+
+\red{
+In this work, as we mainly focus on the gamma-ray below $E_{\rm up}\equiv20\,\TeV$, the absorption effect of the signals, resulting from the interactions with the cosmic microwave background (CMB) and the Galactic photon field, is supposed to be negligible. For more detailed discussions, see Appendix~\ref{gamma_absorption}.
+}
 
 \begin{table*}
-\caption{\label{tab1}Properties of dwarf galaxies in the field of view of LHAASO. Columns represent (1) name of stellar system (2) right ascension in equatorial coordinates (3) declination in equatorial coordinates (4) measured J-factor derived from stellar kinematics by Geringer-Sameth et al. \cite{Geringer-Sameth:2014yza} (5) predicted J-factor from Equation 2 in Ref. \cite{Fermi-LAT:2016uux}}
-%\footnotesize\centering
-	\begin{tabular}{ccccccccc}
-		\hline \hline
- Name& & RA. && DEC.& &$\log_{10}(J_{meas})$& &$\log_{10}(J_{pred})$\\
+\caption{\label{Table:dsphs}The astrophysical properties of nineteen selected dSphs within the LHAASO FOV.
+The listed columns for each dSph are the name, right ascension (RA.), declination (DEC.),
+effective time ratio ($r_{\rm eff}$) showing the fraction of the observation time during which the corresponding zenith angle is smaller than $60^\circ$,
+maximum angular radius ($\rm \theta_{max}$) associated with the dSph's outermost member star,
+and $J$-factor.
+The $J$-factor and $\rm \theta_{max}$ of the dSphs are taken from Ref. \cite{Geringer-Sameth:2014yza}. However, for the four dSphs marked with asterisks whose $J$-factors are not given in Ref. \cite{Geringer-Sameth:2014yza}, we utilize the calculated results from Ref. \cite{Hutten:2016jko}.}
+\small\centering
+\begin{tabular}{ccccccccccccccc} \hline \hline
+              &&
+          RA. &&
+          DEC.&&
+          $r_{\rm eff}$&&
+          $\theta_{\rm max}$&&
+          $\log_{10}J_{\rm obs}$&&\\
 		
-         &&
+       Source&&
 		(deg)&&
 		(deg)&&
-		($\log_{10}\GeV^{2}\rm cm^{-5}$)&&
-		($\log_{10}\GeV^{2}\rm cm^{-5}$)\\\hline
+		     &&
+		(deg)&&
+		($\GeV^{2}\rm cm^{-5}$)\\\hline
 
-%\multicolumn{9}{c}{Kinematically Confirmed Galaxies}\\\hline
 
 		$\rm Bo\ddot{o}tes ~I$&&
 		$210.02$&&
 		$14.50$&&
-		$18.2\pm0.4$&&
-		$18.5$\\
+		$0.352$&&
+		$0.47$&&	
+		$18.2\pm0.4$\\
 		
-		$\rm Bo\ddot{o}tes~II$&&
-		$209.50$&&
-		$12.85$&&
-		$...$&&
-		$18.9$\\
-		
-		$\rm Bo\ddot{o}tes~III$&&
-		$209.30$&&
-		$26.80$&&
-		$...$&&
-		$18.8$\\
 		
 		Canes Venatici $\rm I$&&
 		$202.02$&&
 		$33.56$&&
-		$17.4\pm0.3$&&
-		$17.4$\\
+		$0.398$&&
+		$0.53$&&
+		$17.4\pm0.3$\\
 		
 		Canes Venatici~$\rm II$&&
 		$194.29$&&
 		$34.32$&&
-		$17.6\pm0.4$&&
-		$17.7$\\
+		$0.399$&&
+		$0.13$&&
+		$17.6\pm0.4$\\
 		
 		Coma~Berenices&&
 		$186.74$&&
 		$23.90$&&
-		$19.0\pm0.4$&&
-		$18.8$\\
+		$0.377$&&
+		$0.31$&&
+		$19.0\pm0.4$\\
 		
 		Draco&&
 		$260.05$&&
 		$57.92$&&
-		$18.8\pm0.1$&&
-		$18.3$\\
-		
-		Draco II&&
+		$0.442$&&
+		$1.30$&&
+		$18.8\pm0.1$\\
+
+		Draco II$^{\star}$&&
 		$238.20$&&
 		$64.56$&&
-		$...$&&
-		$19.3$\\
+		$0.451$&&
+		$-$&&
+		$18.1\pm2.8$\\
 		
         Hercules&&
 		$247.76$&&
 		$12.79$&&
-		$16.9\pm0.7$&&
-		$17.9$\\
+		$0.348$&&
+		$0.28$&&
+		$16.9\pm0.7$\\
 
         Leo I&&
 		$152.12$&&
 		$12.30$&&
-		$17.8\pm0.2$&&
-		$17.3$\\
+		$0.346$&&
+		$0.45$&&
+		$17.8\pm0.2$\\
 
         Leo II&&
 		$168.37$&&
 		$22.15$&&
-		$18.0\pm0.2$&&
-		$17.4$\\
+		$0.372$&&
+		$0.23$&&
+		$18.0\pm0.2$\\
 
         Leo IV&&
 		$173.23$&&
 		$-0.54$&&
-		$16.3\pm1.4$&&
-		$17.7$\\
+		$0.303$&&
+		$0.16$&&
+		$16.3\pm1.4$\\
 
         Leo V&&
 		$172.79$&&
 		$2.22$&&
-		$16.4\pm0.9$&&
-		$17.6$\\
+		$0.314$&&
+		$0.07$&&
+		$16.4\pm0.9$\\
 
-        Pisces II&&
+        Pisces II$^{\star}$&&
 		$344.63$&&
 		$5.95$&&
-		$...$&&
-		$17.6$\\
+		$0.327$&&
+		$-$&&
+		$16.9\pm1.6$\\
 
         Segue 1&&
 		$151.77$&&
 		$16.08$&&
-		$19.4\pm0.3$&&
-		$19.4$\\
+		$0.357$&&
+		$0.35$&&
+		$19.4\pm0.3$\\
 
         Sextans&&
 		$153.26$&&
 		$-1.61$&&
-		$17.5\pm0.2$&&
-		$18.2$\\
+		$0.299$&&
+		$1.70$&&
+		$17.5\pm0.2$\\
 
-        Triangulum II&&
+        Triangulum II$^{\star}$&&
 		$33.32$&&
 		$36.18$&&
-		$...$&&
-		$19.1$\\
+		$0.403$&&
+		$-$&&
+		$20.9\pm1.3$\\
 
         Ursa Major I&&
 		$158.71$&&
 		$51.92$&&
-		$17.9\pm0.5$&&
-		$18.1$\\
+		$0.432$&&
+		$0.43$&&
+		$17.9\pm0.5$\\
 
         Ursa Major II&&
 		$132.87$&&
 		$63.13$&&
-		$19.4\pm0.4$&&
-		$19.1$\\
+		$0.449$&&
+		$0.53$&&
+		$19.4\pm0.4$\\
 
         Ursa Minor&&
 		$227.28$&&
 		$67.23$&&
-		$18.9\pm0.2$&&
-		$18.3$\\
+		$0.455$&&
+		$1.37$&&
+		$18.9\pm0.2$\\
 
-        Willman 1&&
+        Willman 1$^{\star}$&&
 		$162.34$&&
 		$51.05$&&
-		$...$&&
-		$18.9$\\\hline
-
-%\multicolumn{9}{c}{Likely Galaxies}\\\hline
-%        Pegasus III&&
-%		$336.09$&&
-%		$5.42$&&
-%		...&&
-%		$17.5$\\
-
+		$0.430$&&
+		$-$&&
+		$19.5\pm0.9$\\
     \hline\hline
 	\end{tabular}
-   \end{table*}
+%	\begin{tablenotes}\footnotesize
+%\item $^{\rm a}$ \red{Generally, $\theta_{\rm max}={\rm arcsin}\,(r_{\rm max}/D)$, where $r_{\rm max}$ is an estimate of distance from the center of dSph to the outermost member star and $D$ is the distance from Earth to the dSph.}
+%\end{tablenotes}
+    \end{table*}
+    
+\subsection{Events at LHAASO}\label{sec:events}
 
-\begin{figure*}
-\includegraphics[width=0.80\textwidth]{sensi.png}
-\caption{Simulated integral sensitivity of LHAASO for Crab-like sources, compared with other experiments \cite{Acharya:2013sxa,Cao:2014rla}. The observation times
-are 1 year and 50 hours for wide field-of-view detectors and IACTs respectively. }
-\label{fig:integral-sensi}
-\end{figure*}
+The ground-based experiment LHAASO is impinged by secondary particles from the Extensive Air Shower (EAS) induced by cosmic rays.
+By monitoring the generated Cherenkov light in the water Cherenkov detectors (WCDs), one can estimate the cosmic particles' energy and determine the orientations from which the initial cosmic particles arrived.
+Different kinds of initial cosmic particles (hadron/gamma) would lead to different energy distributions in the WCDs across the Array.
+For example, a gamma-ray shower results in a smoother energy distribution, whereas a hadron shower leads to a clumped distribution across the WCDs.
+Using this feature, we can discriminate the gamma signals from the backgrounds induced by the hadronic primary incoming cosmic-ray particles.
+%\red{Note that this discriminating method is not available for the cosmic-ray electron (positron), but their contribution to the background is negligible as shown later.}
+
+Since LHAASO is still under-construction, at present we could only make a mimic observation.
+The procedure is as follows: Firstly, we calculate the expected counts of background event resulting from the incoming cosmic ray particles. Then we assume that there is no significant signals from DM annihilation, and make a Gaussian sampling around the background event counts $B$ to get a mimic total observational counts $N$.
+
+The energy resolution of WCDA is about tens of percents.
+We use wide energy bins ($E_{\rm max}/E_{\rm min}=3$ for each bin \red{in the energy range $700\,\GeV\sim20\,\TeV$}) in order to suppress the systematic errors induced by the reconstructed energy dispersion.
+In each energy bin, the background events $B$ from the hadronic cosmic-ray particles can be calculated by
+\begin{equation}\label{func:bkg}
+  B=\int^{E_{\rm max}}_{E_{\rm min}}\int_{\Delta\Omega}\int_0^T\zeta_{cr}\cdot\Phi_{p}(E)\cdot A_{\rm eff}^{p}(E,\theta_{\rm zen}(t))\cdot\varepsilon_{p}(E)dtd\Omega dE,
+\end{equation}
+where $\Phi_{p}(E)$ is the flux of protons in the primary cosmic rays described by a single power-law spectrum, which is best-fitted by the observational datasets of experiments ATIC \cite{Panov:2011ak}, CREAM \cite{Yoon:2011aa} and RUNJOB \cite{Derbina:2005ta}.
+As the abundance of the rest particles in the cosmic ray is about 10\% of the proton's abundance, we introduce an additional factor $\zeta_{cr}=1.1$ to take the contributions of other particles into account. The observational time $T$ is taken to be one year.
+The integration is calculated in all the energy bins within a cone which is defined as $\Delta\Omega=2\pi\times[1-\cos(\max\{ \alpha_{\rm int}, \theta_c \})]$, where $\theta_c$ is the energy dependent angular resolution of LHAASO. In fact, $\theta_c$ varies from $2^\circ$ to $0.1^\circ$ with the increased photon energy \red{as described in the Fig. 45 of LHAASO Science White Paper \cite{Bai:2019khm}}.
+
+The effective area $A_{\rm eff}^{p}$ is derived from an interpolation calculation in the Science White Paper of LHAASO, which is a function of energy and zenith angle $\theta_{\rm zen}$ \cite{Bai:2019khm}.
+DSphs at different declinations correspond to different $\theta_{\rm zen}(t)$ functions, and finally result in different visibilities. In order to briefly show the visibility of each dSph, we list in Table~\ref{Table:dsphs} the effective time ratio $r_{\rm eff}$, which is determined by the proportion of observation time during which the zenith angle $\theta_{\rm zen}$ is smaller than $60^\circ$.
+
+With regard to the survival ratio $\varepsilon$ in the $\gamma/p$ discrimination on WCDA,
+in Ref.~\cite{Zha:2017vcs} the authors have provided an estimation for the quality factor $Q\equiv\varepsilon_{\gamma}/\sqrt{\varepsilon_{p}}$ at various energies, in which the proton survival rate $\varepsilon_{p}$ varies from 0.04\% to 0.11\% when the gamma survival rate $\varepsilon_{\gamma}$ is around $50\%$ for the energies above $0.6\,\TeV$. While as a more conservative choice in this work, we just set $\varepsilon_{p}$ to be $\sim$ 0.278\% when we keep $\varepsilon_{\gamma} \sim40.13\%$.
+\footnote{\red{Note that in this work we mainly focus on the gamma photons with energies higher than 700 GeV.
+    This energy range corresponds to $N_{\rm fit} > 20$ as shown in Ref. \cite{Zha:2017vcs}, thus most of the events with $N_{\rm fit} < 20$ are actually ignored here.
+    Therefore, although the effective areas we used in this work are obtained with $N_{\rm fit} > 10$ in Ref.~\cite{Bai:2019khm} while the gamma/hadron separation are obtained with $N_{\rm fit}>20$~\cite{Zha:2017vcs}, their inconsistency in our interesting energy region is negligible.
+}}
+
+
+The cosmic-ray electron/positron would share the same survival ratio with the gamma-ray, which is 40.13\%.
+However, their flux above hundreds of $\GeV$ is less than $r_{e/p}\sim0.002$ times of the cosmic-ray hadron~\cite{TheDAMPE:2017dtc,Aguilar:2015ooa}. Therefore, for energy range of LHAASO, the background contribution from electron/positron would always be less than $\varepsilon_{\gamma}r_{e/p}/\varepsilon_p\sim30\%$. Note that the $30\%$ is just an extreme value at the energy $300\,\GeV$, for higher energies, this number would rapidly decrease. Thus, we neglect this part of background contribution.
+
+Similarly, the signal events $S$ can be expressed as
+\begin{equation}\label{func:sig}
+  S=\epsilon_{\Delta\Omega}\int^{E_{\rm max}}_{E_{\rm min}}\int_0^T\Phi_{\gamma}(E)\cdot A_{\rm eff}^{\gamma}(E,\theta_{\rm zen}(t))\cdot\varepsilon_{\gamma}(E)dtdE,
+\end{equation}
+where $\epsilon_{\Delta\Omega}=0.68$ is the fraction of observed event counts within the angular resolution of the instrument.
+Here, we assume that all the dSphs are point-like sources, as the energy dependent angular resolution of LHAASO is always larger than the typical angular radius scale of the inner region of the dSph, where DM annihilations have the most important contribution to the gamma-ray flux.
+The effective area $A_{\rm eff}^{\gamma}$ is derived from the same procedure as that in Eq. (\ref{func:bkg}) and $\Phi_{\gamma}(E)$ is the flux of gamma photons from DM annihilation as described in Eq. (\ref{func:anni-flux}).
+
+\subsection{Statistic analysis}\label{sec:analysis}
+In order to quantify the gamma-ray excess in a particular sky region, we perform a likelihood ratio test, which is determined by the ratio of the likelihoods under two hypotheses. The test statistic (TS) is calculated by
+\begin{equation}\label{func:ts}
+  \rm TS=-2\ln\bigg(\frac{\mathcal{L}_{0,{\rm max}}}{\mathcal{L}_{\rm max}}\bigg),
+\end{equation}
+where $\mathcal{L}_{0,{\rm max}}$ is the maximal likelihood under the null hypothesis without DM contribution, and $\mathcal{L}_{\rm max}$ is the maximal likelihood under the alternative hypothesis with DM contribution, evaluated at the value of the cross section which maximizes the likelihood. The factor of two in the definition is for the purpose of causing the distribution of TS values to asymptotically approach a $\chi^{2}$ distribution. Both likelihoods are taken to be Poisson distribution
+\begin{equation}\label{func:likelihood-l}
+  \mathcal{L}(\textbf{S}|\textbf{B},\textbf{N})=\prod_{i}\frac{(B_{i}+S_{i})^{N_{i}} {\rm{exp}} [-(B_{i}+S_{i})]}{N_{i}!},
+\end{equation}
+where $i$ denotes the $i$-th energy bin, $S_{i}$ is the sum of expected number of signal counts corresponding to a DM annihilation cross section, $B_{i}$ is the number of expected background counts, and $N_{i}$ is the number of total observed counts.
+Since the value of $S_{i}$ is physically restricted to be positive, for the sources within the under-fluctuations of the background (i.e., $S_{i}<0$), the value of $S_{i}$ maximizing the likelihood is expected to be zero, being consistent with no gamma-rays from DM sources. In this case, we can get $\mathcal{L}_{0}=\mathcal{L}_{\rm max}$, leading to a TS value of zero for the under-fluctuations.
+
+
+We also consider the statistical uncertainty in $J$-factor determination as a nuisance parameter in the likelihood formulation, following the approach in Refs. \cite{Ackermann:2015zua,Fermi-LAT:2016uux}.
+The likelihood in all energy bins for the $j$-th dSph can be written as
+\begin{equation}
+\mathcal{L}_{j}=\prod_{i}\mathcal{L}_{ij}(S_{ij}|B_{ij},N_{ij})\times\mathcal{J}(J_{j}|J_{{\rm obs},j},\sigma_{j}),
+\end{equation}
+where $i$ and $j$ represent the $i$-th energy bin and $j$-th dSph, respectively. The $J$-factor likelihood term for the $j$-th dSph is assumed to be a Gaussian term
+\begin{equation}
+\mathcal{J}(J_{j}|J_{{\rm obs},j},\sigma_{j})=\dfrac{1}{{\rm ln}(10)J_{{\rm obs},j}\sqrt{2\pi}\sigma_{j}}\times e^{-[\rm log_{10}(J_{\it j})-log_{10}(J_{obs,{\it j}})]^{2}/2\sigma_{\it j}^{2}},
+\end{equation}
+where $\rm log_{10}(J_{obs,{\it j}})$ and $\sigma_{j}$ are the observed mean values and corresponding standard deviations. In the practical calculation, the $\rm log_{10}(J_{\it j})$ is chosen to maximize the $\mathcal{L}_{j}$ for given $\langle\sigma v\rangle$ and $m_{\chi}$.
+
+For a $\chi^{2}$-distributed TS, in order to set a one-side $95\%$ confidence level limit, we expect to derive the decreasing likelihood with increasing number of photons emitted from a potential DM source.
+We optimize $\rm \Delta TS=TS-TS_{95}$ = 2.71 corresponding to an alternative hypothesis excluded at $95\%$ C.L. \cite{Rolke:2004mj}
+\begin{equation}\label{func:95-limit}
+  -2\ln\bigg(\frac{\mathcal{L}_{0,{\rm max}}}{\mathcal{L}_{\rm max}}\bigg)+2\ln\bigg(\frac{\mathcal{L}_{0,{\rm max}}}{\mathcal{L}_{95}}\bigg)=2\bigg(\rm ln\mathcal{L}_{max}-ln\mathcal{L}_{95}\bigg)=2.71.
+\end{equation}
+Then we can set 95\% C.L. upper limit on the DM signature flux by requiring that the corresponding log-likelihood has decreased by 2.71/2 from its maximum.
+After deriving the allowed amount of signal counts $S_{95}$ at $95\%$ C.L., we impose Eqs. (\ref{func:anni-flux}) and (\ref{func:sig}) to derive the corresponding values of $\left\langle \sigma v\right\rangle_{95} $.
+
+For the joint likelihood analysis of many dSphs, the analysis procedure is similar to the single dSph analysis. The combined likelihood of all dSphs becomes
+\begin{equation}
+\mathcal{L}^{\rm tot}=\prod_{j}\mathcal{L}_{j}.
+\end{equation}
+%\begin{equation}
+%  \rm TS^{tot}_{max}-\sum_{bins,dSphs}\bigg[2N^{\rm tot}\ln\bigg(1+\frac{S_{95}^{tot}}{B^{\rm tot}}\bigg)-2S_{95}^{\rm tot}\bigg]=2.71 ,
+%\end{equation}
+By adjusting the number of $\rm \left\langle \sigma v\right\rangle$, we can get $\rm \left\langle \sigma v\right\rangle_{95}$ satisfying $2\bigg(\rm ln\mathcal{L}_{max}-ln\mathcal{L}_{95}\bigg)=2.71$.
+
+
+\section{LHAASO Sensitivities}\label{sec:dm-limit}
+In this section, we describe the LHAASO sensitivity to the DM annihilation cross section through the gamma-ray observation towards dSphs.
+The simulated integral flux sensitivity curve of LHAASO project to a Crab-like source is shown in Fig.~\ref{fig:integral-sensi}; the sensitive curves for other projects are also shown in the same figure for comparison \cite{Cao:2014rla}.
+We can clearly see that LHAASO is more sensitive at high energy range above $\sim 10$ TeV than other ground-based projects. This implies that LHAASO will have a better capability to explore the property of heavy DM particles.
+
+We select nineteen dSphs inside the FOV of LHAASO, whose mean values and uncertainties of the $J$-factor are listed in Table \ref{Table:dsphs}. These dSphs are chosen for their favored declination angle for LHAASO and have well studied dark matter contents. Due to the large FOV of LHAASO (defined in the declination range $-11^{\circ}<\delta<69^{\circ}$), we involved four more dSphs (Draco II, Leo V, Pisces II and Willman 1) in the analysis, compared with the observation of HAWC \cite{Albert:2017vtb}. In light of the simulated gamma-ray observation of LHAASO, we calculate the sensitivities to the DM annihilation cross section for five annihilation channels $b\bar{b}$, $t\bar{t}$, $\mu^{+}\mu^{-}$, $\tau^+\tau^-$ and $\rm W^+W^-$, as shown in Fig. \ref{fig:Lhaaso-separate}.
+The individual sensitivities for each dSph are considered. In addition, the combined sensitivities resulting from a joint likelihood analysis for all the selected dSphs are also exhibited. For the sake of improving the research comprehensiveness, we take the statistical uncertainty of the $J$-factors into account, which would more or less loosen the sensitivity to the gamma-ray signature from dSphs. In spite of this issue, our result is still better than the current upper limit set by HAWC \cite{Albert:2017vtb} by a factor of $2\sim 5$.
+
+
+There are two reasons for this improvement.
+First, the area of WCDA is about 4.5 times larger than that of HAWC, which would improve the sensitivity by a factor of $\sim2.1$.
+Second, we have adopted a more efficient $\gamma/p$ discrimination compared with the analysis of HAWC.
+In the studies of HAWC~\cite{Capistran:2015dua,Abeysekara:2017mjj}, when $\varepsilon_\gamma$ is set to be $\sim50\%$, $\varepsilon_p$ is always larger than $1\%$ around $1\,\TeV$.
+However, the corresponding value for WCDA is expected to be much smaller \cite{Zha:2017vcs}.
+Actually, we have adopted a more conservative $\varepsilon_p\sim0.278\%$ compared with Ref. \cite{Zha:2017vcs}. In spite of this, the good $\gamma/p$ discrimination of WCDA still leads to an improvement with a factor at least of $\sim2$.
 
 \begin{figure*}[!htbp]
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-e.eps}}
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-mu.eps}}
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-tau.eps}}
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-bbar.eps}}
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-up.eps}}
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-WW.eps}}
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-4mu.eps}}
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-4tau.eps}}
-{\includegraphics[width=0.30\textwidth]{m_chi-sv-4e.eps}}
-\caption{The projected upper limits on the DM annihilation cross section $\langle\sigma v\rangle$ from Segue 1 dSph for LHAASO (including both WCDA and KM2A) one year observation as a function of dark matter particle mass.
-We consider nine different DM annihilation channels: $e^{+}e^{-}$, $\mu^{+}\mu^{-}$, $\tau^+\tau^-$, u$\bar{\rm u}$, $b\bar{b}$, $W^+W^-$, $4\mu$, $4\tau$, $4e$. Note that the blue and red dotted lines represent the constraints from LHAASO-WCDA and LHAASO-KM2A respectively.}
-\label{fig:Lhaaso-wcda-km2a}
+{\includegraphics[width=0.45\textwidth]{annihilate_bottom.eps}}
+{\includegraphics[width=0.45\textwidth]{annihilate_top.eps}}
+{\includegraphics[width=0.45\textwidth]{annihilate_mu.eps}}
+{\includegraphics[width=0.45\textwidth]{annihilate_tau.eps}}
+{\includegraphics[width=0.45\textwidth]{annihilate_W.eps}}
+\caption{The projected sensitivities to the DM annihilation cross section $\langle\sigma v\rangle$ at $95\%$ confidence level for nineteen dSphs within the LHAASO FOV of one year for the $\rm b\bar{b}$, $\rm t\bar{t}$, $\mu^{+}\mu^{-}$, $\tau^+\tau^-$, $\rm W^+W^-$ annihilation channels. The solid red line represents the combined sensitivity resulting from a joint likelihood analysis, considering the observations of all dSphs.}
+\label{fig:Lhaaso-separate}
 \end{figure*}
+
+We find that the combined sensitivity is dominated by the influence of three dSphs with large $J$-factors and favorable locations in the FOV of LHAASO, including Segue 1, Ursa Major II and Triangulum II. Since LHAASO is located at the latitude of $\sim29^{\circ}$, it would be more sensitive than HAWC to the high-latitude bright sources such as Ursa Major II. Although Triangulum II with almost the largest $J$-factor among all the selected dSphs is very close to the center of the LHAASO FOV, it is not utterly dominant over the combined sensitivity. This is because the statistical uncertainty of the $J$-factor of Triangulum II is large due to the lack of kinematic observational data. Including the uncertainty of the $J$-factor into the joint likelihood analysis would alleviate the overestimation of the combined sensitivity to a great extent. The remaining 16 dSphs do not significantly impact on the combined sensitivity. Despite that some of them are relatively close to the center of the LHAASO FOV, those dSphs have so small $J$-factors that LHAASO is not sensitive enough to them.
+
+In order to consider the statistic fluctuation in the analysis, we repeat 500 mimic observations under the null hypothesis considering the Poisson fluctuation on the expected event count. Then we calculate the median combined sensitivity and the two-sided 68\% and 95\% containment bands as shown in Fig.~\ref{fig:Lhaaso-combined}.
+In this figure, we also displayed the comparison of the LHAASO sensitivity to the constraints from another five dSph gamma-ray observations, including the HAWC combined limit \cite{Albert:2017vtb}, Fermi-LAT combined dSph limit \cite{Ackermann:2013yva}, HESS combined dSph limit \cite{Abramowski:2014tra}, VERITAS Segue 1 limit \cite{Aliu:2012ga} and MAGIC Segue 1 limit \cite{Ahnen:2016qkx}.
+
 
 \begin{figure*}
-	{\includegraphics[width=0.30\textwidth]{combined-e.eps}}
-	{\includegraphics[width=0.30\textwidth]{combined-mu.eps}}
-	{\includegraphics[width=0.30\textwidth]{combined-tau.eps}}
-	{\includegraphics[width=0.30\textwidth]{combined-up.eps}}
-	{\includegraphics[width=0.30\textwidth]{combined-bbar.eps}}
-	{\includegraphics[width=0.30\textwidth]{combined-WW.eps}}
-	{\includegraphics[width=0.30\textwidth]{combined-4mu.eps}}
-	{\includegraphics[width=0.30\textwidth]{combined-4tau.eps}}
-    {\includegraphics[width=0.30\textwidth]{combined-4e.eps}}
-\caption{The projected combined upper limits on the DM annihilation cross section $\langle\sigma v\rangle$  for LHAASO one year observation as a function of dark matter particle mass for nine different DM annihilation channels: $e^{+}e^{-}$, $\mu^{+}\mu^{-}$, $\tau^+\tau^-$, u$\bar{\rm u}$, $b\bar{b}$, $W^+W^-$, $4\mu$, $4\tau$, $4e$. This curve is also for the Segue 1 dwarf galaxy.}
-\label{fig:Lhaaso}
+	{\includegraphics[width=0.45\textwidth]{annihilate_combined_bottom}}
+	{\includegraphics[width=0.45\textwidth]{annihilate_combined_top.eps}}
+	{\includegraphics[width=0.45\textwidth]{annihilate_combined_mu.eps}}
+	{\includegraphics[width=0.45\textwidth]{annihilate_combined_tau.eps}}
+	{\includegraphics[width=0.45\textwidth]{annihilate_combined_ww.eps}}
+\caption{The LHAASO median combined sensitivities (red solid lines), and related two-sided $68\%$ (yellow bands) and $95\%$ (green bands) containment bands of one year for the b$\bar{\rm b}$, $\rm t\bar{\rm t}$, $\mu^{+}\mu^{-}$, $\tau^+\tau^-$, and $\rm W^+W^-$ annihilation channels. The HAWC combined limits \cite{Albert:2017vtb}, Fermi-LAT combined limit \cite{Ackermann:2013yva}, VERITAS Segue 1 limit \cite{Aliu:2012ga}, HESS combined dSph limit \cite{Abramowski:2014tra} and MAGIC Segue 1 limit \cite{Ahnen:2016qkx} are also shown for comparison. }
+\label{fig:Lhaaso-combined}
 \end{figure*}
-\section{Conclusion and discussion}\label{sec conclu}
-LHAASO is a newly planed under-construction wide field-of-view observatory (VHE $\gamma$-ray detectors) to research on high energy gamma ray astronomy with unprecedented sensitivity. Considering the fact that LHAASO will carry out its preliminary operation at the end of this year, it is quite natural to predict the perspective of LHAASO based on the simulated experimental data.
-In this paper, we discuss the expectation on the limits of dark matter annihilation cross section from the LHAASO gamma ray observation of dwarf galaxies. Our calculation shows that, as for the annihilation channels $e^{+}e^{-}$, $\mu^{+}\mu^{-}$, $W^+W^-$, $4\mu$ and $4e$, LHAASO-KM2A will give more stringent constraints on annihilation cross section than that from LHAASO-WCDA at the high DM mass range above tens of TeV. However, with regard to the channels $b\bar{b}$, u$\bar{\rm u}$ and $4\tau$, the constraints from WCDA are always stricter than KM2A in the whole DM particle mass range.
-In addition, we also performed the combined analysis on the entire LHAASO experiment including both WCDA and KM2A, and we find that depending on the gamma spectrum, LHAASO will be able to constrain a large part of parameter space if no signal would be detected for its one year's observation.
 
-It is worthwhile to mentioned that the substructures in the dSphs, despite generally not important, would contribute a factor of several on the uncertainty of constraints from $\gamma$-ray observations of dSphs.
-In spite of the existence of uncertainties, our results still shows that the researches on dSphs may be a promising way for the indirect detection of DM on LHAASO. It is believed that LHAASO will open a new era in DM study and greatly enrich our knowledge about dark matter.
-%%%----------------------------------------------%%%
-%\begin{figure*}[!htbp]
-%\centering
+Broadly speaking, the most strong LHAASO sensitivity to the DM annihilation cross section comes from the $\tau^{+}\tau^{-}$ annihilation channel, which is nearly close to $10^{-24}~\rm cm^{3}~s^{-1}$, for all the DM masses considered here. \red{For the $b\bar{b}$ channel, the MAGIC observation sets the most stringent constraint up to $\sim15$ TeV. Above $\sim15$ TeV, LHAASO is more sensitive to this channel. Besides, with regard to the $t\bar{t}$, $\tau^+\tau^-$, and $\rm W^+W^-$ channels, LHAASO are more sensitive beyond $\sim3 ~\rm TeV$, $\sim2 ~\rm TeV$, and $\sim 5 ~\rm TeV$, respectively, compared with the current limits set by other experiments.
+For the $\mu^{+}\mu^{-}$ channel, LHAASO has great sensitivity for the almost whole mass range from 1 TeV to 100 TeV.} Therefore, we can conclude that LHAASO will be able to set stringent constraints on the property of heavy DM particles, especially for those heavier than $\sim 10$ TeV.
 
-%\subfigure[~M31, in $\mu^+\mu^-$ channel]
-%{\includegraphics[width=0.45\textwidth]{m31_flux_mu1.eps}}
-%\subfigure[~M31, in $\tau^+\tau^-$ channel]
-%{\includegraphics[width=0.45\textwidth]{m31_flux_tau1.eps}}
-%\subfigure[~M31, in $b\bar{b}$ channel]
-%{\includegraphics[width=0.45\textwidth]{m31_flux_bb1.eps}}
-%\subfigure[~Comparision of M31 and Draco]
-%{\includegraphics[width=0.45\textwidth]{argo_compare.eps}}
+\section{Conclusion and discussion}\label{sec:conclu}
+LHAASO is a newly planed under-construction wide FOV observatory to research on VHE gamma-ray astronomy with unprecedented sensitivity. Considering the fact that LHAASO will carry out its preliminary operation at the end of this year, it is timely to predict the physical perspective of LHAASO based on the simulated experimental data.
+In this paper, we investigate the LHASSO sensitivity to the DM annihilation cross section for five DM annihilation channels by the gamma-ray observation of dSphs. We calculate the individual sensitivities for nineteen dSphs within the LHAASO FOV using a likelihood ratio analysis method. In order to make the analysis more comprehensive and reliable, the statistical uncertainty of the $J$-factor is also incorporated as a nuisance parameter in the likelihood formulation.
+In addition, we also calculate the combined sensitivity from a joint likelihood analysis of overall dSphs with the purpose of enhancing the statistical power in the calculation. These are the first simulated LHAASO sensitivity to the DM annihilation cross section using the mimic observation data.
 
-%\caption{The upper limmit of gamma-ray flux in the dark matter annihilation channels of $\rm\mu^+\rm\mu^-$ (a), $\rm\tau^{+}\rm\tau^{-}$ (b) and $b\bar{b}$ (c) respectively and the comparision of gamma-ray flux upper limit given by ARGO observation of Draco and M31 (d).}
-%\label{fig:M31}
-%\end{figure*}
+Our calculation shows that the LHAASO combined sensitivity is dominated by the influence of the three dSphs with large $J$-factors: Segue 1, Ursa Major II, and Triangulum II. Furthermore, we compare the LHAASO sensitivities with the current limits set by other five gamma-ray experiments, including HAWC, Fermi-LAT, VERITAS, HESS and MAGIC.
+The results manifest that the LHAASO sensitivities are better than the current limits above $\sim2$, 5, and 8 TeV for the $\tau^+\tau^-$, $\rm W^+W^-$ and $b\bar{b}$ channels, respectively. For the $t\bar{t}$ and $\mu^{+}\mu^{-}$ channels, LHAASO has great sensitivities in the large mass range from 1 TeV to 100 TeV.
 
-%\begin{figure*}
-%	\centering
-%	\subfigure%[constrains on dark matter annihilation cross section]
-%	{\includegraphics[width=0.9\textwidth]{argo_sv.eps}}
-%	\caption{Constraints on the dark matter annihilation cross section given by the ARGO observations of Drago dwarf spheroidal galaxy and M31 galaxy, only considering the final state radiation.}
-%	\label{fig:sigma-v}
-%\end{figure*}
-%%%%---------------------------%%%%%%%%%%%%%%
 
-%\newpage
+It is worthwhile to mention several systematic uncertainties arising from the determination of the $J$-factor of dSphs would contribute a factor of several on the uncertainty of the final sensitivity.
+In spite of the existence of these uncertainties, our results still show that the LHAASO gamma-ray researches of dSphs would be a promising way of the DM indirect detection. It is believed that LHAASO will greatly enrich our knowledge about DM particles above ${\mathcal O}$(TeV).
+
 \begin{acknowledgments}
-We would like to thank Yi-Qing Guo, Han-Rong Wu and Zhi-Guo Yao for helpful discussions.
+\red{We would like to thank the anonymous referees for their helpful comments and suggestions.}  
+We are grateful to Ying-Ying Guo, Min Zha, Yan-Jin Wang, Yi-Qing Guo, Han-Rong Wu and Zhi-Guo Yao for helpful and engaging discussions.
+This work is supported by the National Key R~$\&$~D Program of China (Grant No. 2016YFA0400200), the National Natural Science Foundation of China (Grant Nos. U1738209, 11851303, 11835009), and the National Program for Support of Top-Notch Young Professionals.
 \end{acknowledgments}
 
-\begin{thebibliography}{99}
-%\cite{Adam:2015rua}
-\bibitem{Adam:2015rua}
-  R.~Adam {\it et al.} [Planck Collaboration],
-  %``Planck 2015 results. I. Overview of products and scientific results,''
-  Astron.\ Astrophys.\  {\bf 594}, A1 (2016)
-  doi:10.1051/0004-6361/201527101
-  [arXiv:1502.01582 [astro-ph.CO]].
-  %%CITATION = doi:10.1051/0004-6361/201527101;%%
-  %522 citations counted in INSPIRE as of 09 Jan 2018
+\appendix
+\red{
+\section{Gamma-ray absorption} \label{gamma_absorption}
+The VHE gamma-rays would be absorbed when traveling through the cosmos due to the $e^+e^-$ pair production.
+This effect has been well studied in the literature \cite{Franceschini:2008tp,Gould:1967zzb}.
+The differential optical depth $\mathrm{d}\tau/\mathrm{d}x$ of the cosmic photon gas depends on both of the $\gamma+\gamma$ collision cross section and the number density of the target photons.
+}
 
-%\cite{Jungman:1995df}
-\bibitem{Jungman:1995df}
-  G.~Jungman, M.~Kamionkowski and K.~Griest,
-  %``Supersymmetric dark matter,''
-  Phys.\ Rept.\  {\bf 267}, 195 (1996)
-  doi:10.1016/0370-1573(95)00058-5
-  [hep-ph/9506380].
-  %%CITATION = doi:10.1016/0370-1573(95)00058-5;%%
-  %3330 citations counted in INSPIRE as of 09 Jan 2018
+\red{
+The $\gamma+\gamma\rightarrow e^++e^-$ cross section is
+\begin{equation}
+  \sigma = \frac{1}{2}\pi r_0^2(1-\beta^2)\left[ (3-\beta^4)\ln\frac{1+\beta}{1-\beta}-2\beta(2-\beta^2) \right],
+  \label{eq:cross_section}
+\end{equation}
+where $r_0=e^2/mc^2$ is the classical electron radius, $\beta$ is the velocity of the $e^+$ ($e^-$)  in the center-of-mass system.
+Assuming the energies of two interacting photons as $E$ and $E'$, we can define a variable
+\begin{equation}
+  s\equiv (EE'/2m^2c^4)(1-\cos\theta)
+  \label{eq:s_variable}
+\end{equation}
+for convenience, which is the function of $\beta$
+\begin{equation}
+  s = \frac{1}{1-\beta^2}.
+  \label{eq:s_beta}
+\end{equation}
+}
 
-%\cite{Bergstrom:2000pn}
-\bibitem{Bergstrom:2000pn}
-  L.~Bergstr?m,
-  %``Nonbaryonic dark matter: Observational evidence and detection methods,''
-  Rept.\ Prog.\ Phys.\  {\bf 63}, 793 (2000)
-  doi:10.1088/0034-4885/63/5/2r3
-  [hep-ph/0002126].
-  %%CITATION = doi:10.1088/0034-4885/63/5/2r3;%%
-  %658 citations counted in INSPIRE as of 09 Jan 2018
+\red{
+With photon number density expressed as $\mathrm{d}n=(1/2)n(E')\sin\theta\mathrm{d}E'\mathrm{d}\theta$, it is natural to obtain the differential optical depth
+\begin{equation}
+  \frac{\mathrm{d}\tau}{\mathrm{d}x}=\int\int\frac{1}{2}\sigma n(E')(1-\cos\theta)\sin\theta\mathrm{d}E'\mathrm{d}\theta.
+  \label{eq:dtaudx}
+\end{equation}
+Defining an auxiliary variable
+\begin{equation}
+  \begin{aligned}
+  s_0 &= s / z, \\
+  z &= \frac{1}{2}(1-\cos\theta),
+  \end{aligned}
+  \label{eq:s0}
+\end{equation}
+we could invert the integral variable $\theta$ of Eq.~(\ref{eq:dtaudx}) to $s$
+\begin{equation}
+  \frac{\mathrm{d}\tau}{\mathrm{d}x}=\pi r_0^2\left( \frac{m^2c^4}{E} \right)^2\int^\infty_{m^2c^4/E}E'^{-2}n(E')\varphi\left[ s_0(E') \right]\mathrm{d}E',
+  \label{eq:dtaudx_final}
+\end{equation}
+where
+\begin{equation}
+  \varphi\left[ s_0(E') \right] = \frac{2}{\pi r_0^2}\int_{1}^{s_0}\sigma(s)\mathrm{d}s.
+  \label{eq:phi_bar}
+\end{equation}
+}
 
-%\cite{Bertone:2004pz}
-\bibitem{Bertone:2004pz}
-  G.~Bertone, D.~Hooper and J.~Silk,
-  %``Particle dark matter: Evidence, candidates and constraints,''
-  Phys.\ Rept.\  {\bf 405}, 279 (2005)
-  doi:10.1016/j.physrep.2004.08.031
-  [hep-ph/0404175].
-  %%CITATION = doi:10.1016/j.physrep.2004.08.031;%%
-  %2892 citations counted in INSPIRE as of 09 Jan 2018
+\red{
+For the CMB, the photon gas density follows a blackbody distribution
+\begin{equation}
+  n(E') = (\hbar c)^{-3}(E'/\pi)^2\left( e^{E'/kT}-1 \right)^{-1},
+  \label{eq:CMB_density}
+\end{equation}
+where the temperature $T$ for CMB is approximately to be $2.73\,\mathrm{K}$.
+Adopting the distribution in Eq.~(\ref{eq:CMB_density}), the Ref.~\cite{Gould:1967zzb} has derived two asymptotic formulae for the solution of Eq.~(\ref{eq:dtaudx_final}).
+We could also directly calculate this integral with the general numerical methods.
+}
 
-%\cite{Ackermann:2010rg}
-\bibitem{Ackermann:2010rg}
-  M.~Ackermann {\it et al.},
-  %``Constraints on Dark Matter Annihilation in Clusters of Galaxies with the Fermi Large Area Telescope,''
-  JCAP {\bf 1005}, 025 (2010)
-  doi:10.1088/1475-7516/2010/05/025
-  [arXiv:1002.2239 [astro-ph.CO]].
-  %%CITATION = doi:10.1088/1475-7516/2010/05/025;%%
-  %190 citations counted in INSPIRE as of 09 Jan 2018
+\red{
+As a result, we directly calculate the Eq.~(\ref{eq:dtaudx_final}) for CMB, and show the corresponding survival rate $e^{-\tau}$ for source distances $100\,\kpc\sim1\,\Mpc$ in Fig.~\ref{fig:opacity}.
+The optical depth $\tau$ used here is just the product of the distance $d$ and the differential optical depth $\mathrm{d}\tau/\mathrm{d}x$.
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figs/opacity.eps}
+  \caption{The survival rate of gamma-rays in CMB.}
+  \label{fig:opacity}
+\end{figure}
+It could be seen that even for a distance as far as $1\,\Mpc$, the survival rate of gamma-rays $\sim20\,\TeV$ is almost $100\%$.
+Therefore, the absorption of CMB is negligible for our target sources whose distances are always smaller than $300\,\kpc$.
+%\begin{table}
+%  \centering
+%  \caption{The location of the dSphs inside the LHAASO FOV.}
+%  \input{dsph.tex}
+%  \label{tab:dwarf_info_appendix}
+%\end{table}
+}
 
-%\cite{Hooper:2011ti}
-\bibitem{Hooper:2011ti}
-  D.~Hooper and T.~Linden,
-  %``On The Origin Of The Gamma Rays From The Galactic Center,''
-  Phys.\ Rev.\ D {\bf 84}, 123005 (2011)
-  doi:10.1103/PhysRevD.84.123005
-  [arXiv:1110.0006 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevD.84.123005;%%
-  %413 citations counted in INSPIRE as of 09 Jan 2018
+\red{
+  In addition to the CMB, the infrared radiation component of interstellar radiation field (ISRF) would also absorb the gamma-ray.
+  The infrared radiation is composed of multiple kinds of emission from the cosmic dust.
+  Its distribution inside the Galaxy is much more complex than that of the CMB.
+  A widely adopted detailed model has been established to describe this distribution in Ref.~\cite{Strong:1998fr}.
+}
 
-%\cite{Ackermann:2012rg}
-\bibitem{Ackermann:2012rg}
-  M.~Ackermann {\it et al.} [Fermi-LAT Collaboration],
-  %``Constraints on the Galactic Halo Dark Matter from Fermi-LAT Diffuse Measurements,''
-  Astrophys.\ J.\  {\bf 761}, 91 (2012)
-  doi:10.1088/0004-637X/761/2/91
-  [arXiv:1205.6474 [astro-ph.CO]].
-  %%CITATION = doi:10.1088/0004-637X/761/2/91;%%
-  %202 citations counted in INSPIRE as of 09 Jan 2018
+\red{
+  Ref.~\cite{Zhang:2005tp} has adopted this model to perform a detailed calculation to analyse the gamma-ray attenuation for the $\mathrm{Sgr\,\,A^*}$ at Galactic center (GC), showing that the infrared radiation component would lead to an absorption $\lesssim5\%$ for the photon energies below $20\,\TeV$.
+  Note that the infrared radiation is supposed to be densest at the GC and would rapidly decrease along the axes of $R$ and $z$ in the cylindrical coordinate~\cite{Strong:1998fr}.
+  Therefore, the optical depth for the dSphs of interest in this work would be even much smaller than that of the $\mathrm{Sgr\,\,A^*}$.
+  %Especially, we could check the several brightest dSphs in this work, including the Segue I, Ursa Major II, Triangulum II, Usar Minor.
+  %Due to the large angles between these sources and the GC (see Table.~\ref{tab:dwarf_info_appendix}), the the ISRF density in their line of sights (LOSs) is always lower than that at the sun.
+  %It could be seen at Ref.~\cite{Strong:1998fr} that the ISRF density at the sun is about a magnitude lower than the GC.
+  %Therefore, as a raw estimation, the optical depth for these brightest dSphs would be about a magnitude smaller than the $\mathrm{Sgr A^*}$, which means an absorption $\sim2\%$ at $100\TeV$.
+  We thus could neglect the absorption of infrared radiation inside the Galaxy.
+}
 
-%\cite{Abazajian:2012pn}
-\bibitem{Abazajian:2012pn}
-  K.~N.~Abazajian and M.~Kaplinghat,
-  %``Detection of a Gamma-Ray Source in the Galactic Center Consistent with Extended Emission from Dark Matter Annihilation and Concentrated Astrophysical Emission,''
-  Phys.\ Rev.\ D {\bf 86}, 083511 (2012)
-  Erratum: [Phys.\ Rev.\ D {\bf 87}, 129902 (2013)]
-  doi:10.1103/PhysRevD.86.083511, 10.1103/PhysRevD.87.129902
-  [arXiv:1207.6047 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevD.86.083511, 10.1103/PhysRevD.87.129902;%%
-  %369 citations counted in INSPIRE as of 09 Jan 2018
+\bibliographystyle{utphys}
+%\bibliographystyle{thubib}
+%\bibliography{/home/hedz/Pictures/citetemp}
+\bibliography{reference}
 
-%\cite{Abdo:2010nc}
-\bibitem{Abdo:2010nc}
-  A.~A.~Abdo {\it et al.},
-  %``Fermi LAT Search for Photon Lines from 30 to 200 GeV and Dark Matter Implications,''
-  Phys.\ Rev.\ Lett.\  {\bf 104}, 091302 (2010)
-  doi:10.1103/PhysRevLett.104.091302
-  [arXiv:1001.4836 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevLett.104.091302;%%
-  %208 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Ackermann:2012qk}
-\bibitem{Ackermann:2012qk}
-  M.~Ackermann {\it et al.} [Fermi-LAT Collaboration],
-  %``Fermi LAT Search for Dark Matter in Gamma-ray Lines and the Inclusive Photon Spectrum,''
-  Phys.\ Rev.\ D {\bf 86}, 022002 (2012)
-  doi:10.1103/PhysRevD.86.022002
-  [arXiv:1205.2739 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevD.86.022002;%%
-  %256 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Weniger:2012tx}
-\bibitem{Weniger:2012tx}
-  C.~Weniger,
-  %``A Tentative Gamma-Ray Line from Dark Matter Annihilation at the Fermi Large Area Telescope,''
-  JCAP {\bf 1208}, 007 (2012)
-  doi:10.1088/1475-7516/2012/08/007
-  [arXiv:1204.2797 [hep-ph]].
-  %%CITATION = doi:10.1088/1475-7516/2012/08/007;%%
-  %423 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Ackermann:2013uma}
-\bibitem{Ackermann:2013uma}
-  M.~Ackermann {\it et al.} [Fermi-LAT Collaboration],
-  %``Search for Gamma-ray Spectral Lines with the Fermi Large Area Telescope and Dark Matter Implications,''
-  Phys.\ Rev.\ D {\bf 88}, 082002 (2013)
-  doi:10.1103/PhysRevD.88.082002
-  [arXiv:1305.5597 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevD.88.082002;%%
-  %225 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Zechlin:2011kk}
-\bibitem{Zechlin:2011kk}
-  H.~S.~Zechlin, M.~V.~Fernandes, D.~Elsaesser and D.~Horns,
-  %``Dark matter subhaloes as gamma-ray sources and candidates in the first Fermi-LAT catalogue,''
-  Astron.\ Astrophys.\  {\bf 538}, A93 (2012)
-  doi:10.1051/0004-6361/201117655
-  [arXiv:1111.3514 [astro-ph.HE]].
-  %%CITATION = doi:10.1051/0004-6361/201117655;%%
-  %28 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Ackermann:2012nb}
-\bibitem{Ackermann:2012nb}
-  M.~Ackermann {\it et al.} [Fermi-LAT Collaboration],
-  %``Search for Dark Matter Satellites using the FERMI-LAT,''
-  Astrophys.\ J.\  {\bf 747}, 121 (2012)
-  doi:10.1088/0004-637X/747/2/121
-  [arXiv:1201.2691 [astro-ph.HE]].
-  %%CITATION = doi:10.1088/0004-637X/747/2/121;%%
-  %85 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Zechlin:2012by}
-\bibitem{Zechlin:2012by}
-  H.~S.~Zechlin and D.~Horns,
-  %``Unidentified sources in the Fermi-LAT second source catalog: the case for DM subhalos,''
-  JCAP {\bf 1211}, 050 (2012)
-  Erratum: [JCAP {\bf 1502}, no. 02, E01 (2015)]
-  doi:10.1088/1475-7516/2012/11/050, 10.1088/1475-7516/2015/02/E01
-  [arXiv:1210.3852 [astro-ph.HE]].
-  %%CITATION = doi:10.1088/1475-7516/2012/11/050, 10.1088/1475-7516/2015/02/E01;%%
-  %39 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Mateo:1998wg}
-\bibitem{Mateo:1998wg}
-  M.~Mateo,
-  %``Dwarf galaxies of the Local Group,''
-  Ann.\ Rev.\ Astron.\ Astrophys.\  {\bf 36}, 435 (1998)
-  doi:10.1146/annurev.astro.36.1.435
-  [astro-ph/9810070].
-  %%CITATION = doi:10.1146/annurev.astro.36.1.435;%%
-  %1263 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Grcevich:2009gt}
-\bibitem{Grcevich:2009gt}
-  J.~Grcevich and M.~E.~Putman,
-  %``HI in Local Group Dwarf Galaxies and Stripping by the Galactic Halo,''
-  Astrophys.\ J.\  {\bf 696}, 385 (2009)
-  Erratum: [Astrophys.\ J.\  {\bf 721}, 922 (2010)]
-  doi:10.1088/0004-637X/721/1/922, 10.1088/0004-637X/696/1/385
-  [arXiv:0901.4975 [astro-ph.GA]].
-  %%CITATION = doi:10.1088/0004-637X/721/1/922, 10.1088/0004-637X/696/1/385;%%
-  %153 citations counted in INSPIRE as of 09 Jan 2018
-%haha!!!!
-%\cite{Acharya:2013sxa}
-\bibitem{Acharya:2013sxa}
-  B.~S.~Acharya {\it et al.} [CTA Consortium],
-  %``Introducing the CTA concept,''
-  Astropart.\ Phys.\  {\bf 43}, 3 (2013).
-  doi:10.1016/j.astropartphys.2013.01.007
-  %%CITATION = doi:10.1016/j.astropartphys.2013.01.007;%%
-  %341 citations counted in INSPIRE as of 08 Jan 2018
-
-%\cite{Cao:2010zz}
-\bibitem{Cao:2010zz}
-  Z.~Cao [LHAASO Collaboration],
-  %``A future project at Tibet: The large high altitude air shower observatory (LHAASO),''
-  Chin.\ Phys.\ C {\bf 34}, 249 (2010).
-  doi:10.1088/1674-1137/34/2/018
-  %%CITATION = doi:10.1088/1674-1137/34/2/018;%%
-  %67 citations counted in INSPIRE as of 08 Jan 2018
-
-%\cite{Cao:2014rla}
-\bibitem{Cao:2014rla}
-  Z.~Cao [LHAASO Collaboration],
-  %``Status of LHAASO updates from ARGO-YBJ,''
-  Nucl.\ Instrum.\ Meth.\ A {\bf 742}, 95 (2014).
-  doi:10.1016/j.nima.2013.12.012
-  %%CITATION = doi:10.1016/j.nima.2013.12.012;%%
-  %7 citations counted in INSPIRE as of 08 Jan 2018
-
-%\cite{Cirelli:2010xx}
-\bibitem{Cirelli:2010xx}
-  M.~Cirelli {\it et al.},
-  %``PPPC 4 DM ID: A Poor Particle Physicist Cookbook for Dark Matter Indirect Detection,''
-  JCAP {\bf 1103}, 051 (2011)
-  Erratum: [JCAP {\bf 1210}, E01 (2012)]
-  doi:10.1088/1475-7516/2012/10/E01, 10.1088/1475-7516/2011/03/051
-  [arXiv:1012.4515 [hep-ph]].
-  %%CITATION = doi:10.1088/1475-7516/2012/10/E01, 10.1088/1475-7516/2011/03/051;%%
-  %488 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Ciafaloni:2010ti}
-\bibitem{Ciafaloni:2010ti}
-  P.~Ciafaloni, D.~Comelli, A.~Riotto, F.~Sala, A.~Strumia and A.~Urbano,
-  %``Weak Corrections are Relevant for Dark Matter Indirect Detection,''
-  JCAP {\bf 1103}, 019 (2011)
-  doi:10.1088/1475-7516/2011/03/019
-  [arXiv:1009.0224 [hep-ph]].
-  %%CITATION = doi:10.1088/1475-7516/2011/03/019;%%
-  %213 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Fermi-LAT:2016uux}
-\bibitem{Fermi-LAT:2016uux}
-  A.~Albert {\it et al.} [Fermi-LAT and DES Collaborations],
-  %``Searching for Dark Matter Annihilation in Recently Discovered Milky Way Satellites with Fermi-LAT,''
-  Astrophys.\ J.\  {\bf 834}, no. 2, 110 (2017)
-  doi:10.3847/1538-4357/834/2/110
-  [arXiv:1611.03184 [astro-ph.HE]].
-  %%CITATION = doi:10.3847/1538-4357/834/2/110;%%
-  %86 citations counted in INSPIRE as of 09 Jan 2018
-
-%\cite{Geringer-Sameth:2014yza}
-\bibitem{Geringer-Sameth:2014yza}
-  A.~Geringer-Sameth, S.~M.~Koushiappas and M.~Walker,
-  %``Dwarf galaxy annihilation and decay emission profiles for dark matter experiments,''
-  Astrophys.\ J.\  {\bf 801}, no. 2, 74 (2015)
-  doi:10.1088/0004-637X/801/2/74
-  [arXiv:1408.0002 [astro-ph.CO]].
-  %%CITATION = doi:10.1088/0004-637X/801/2/74;%%
-  %79 citations counted in INSPIRE as of 10 Jan 2018
-%\cite{Abdo:2010ex}
-\bibitem{Abdo:2010ex}
-  A.~A.~Abdo {\it et al.} [Fermi-LAT Collaboration],
-  %``Observations of Milky Way Dwarf Spheroidal galaxies with the Fermi-LAT detector and constraints on Dark Matter models,''
-  Astrophys.\ J.\  {\bf 712}, 147 (2010)
-  doi:10.1088/0004-637X/712/1/147
-  [arXiv:1001.4531 [astro-ph.CO]].
-  %%CITATION = doi:10.1088/0004-637X/712/1/147;%%
-  %280 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{Ackermann:2011wa}
-\bibitem{Ackermann:2011wa}
-  M.~Ackermann {\it et al.} [Fermi-LAT Collaboration],
-  %``Constraining Dark Matter Models from a Combined Analysis of Milky Way Satellites with the Fermi Large Area Telescope,''
-  Phys.\ Rev.\ Lett.\  {\bf 107}, 241302 (2011)
-  doi:10.1103/PhysRevLett.107.241302
-  [arXiv:1108.3546 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevLett.107.241302;%%
-  %534 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{GeringerSameth:2011iw}
-\bibitem{GeringerSameth:2011iw}
-  A.~Geringer-Sameth and S.~M.~Koushiappas,
-  %``Exclusion of canonical WIMPs by the joint analysis of Milky Way dwarfs with Fermi,''
-  Phys.\ Rev.\ Lett.\  {\bf 107}, 241303 (2011)
-  doi:10.1103/PhysRevLett.107.241303
-  [arXiv:1108.2914 [astro-ph.CO]].
-  %%CITATION = doi:10.1103/PhysRevLett.107.241303;%%
-  %271 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{Cholis:2012am}
-\bibitem{Cholis:2012am}
-  I.~Cholis and P.~Salucci,
-  %``Extracting limits on Dark Matter annihilation from gamma-ray observations towards dwarf spheroidal galaxies,''
-  Phys.\ Rev.\ D {\bf 86}, 023528 (2012)
-  doi:10.1103/PhysRevD.86.023528
-  [arXiv:1203.2954 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevD.86.023528;%%
-  %43 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{GeringerSameth:2012sr}
-\bibitem{GeringerSameth:2012sr}
-  A.~Geringer-Sameth and S.~M.~Koushiappas,
-  %``Dark matter line search using a joint analysis of dwarf galaxies with the Fermi Gamma-ray Space Telescope,''
-  Phys.\ Rev.\ D {\bf 86}, 021302 (2012)
-  doi:10.1103/PhysRevD.86.021302
-  [arXiv:1206.0796 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevD.86.021302;%%
-  %59 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{Mazziotta:2012ux}
-\bibitem{Mazziotta:2012ux}
-  M.~N.~Mazziotta, F.~Loparco, F.~de Palma and N.~Giglietto,
-  %``A model-independent analysis of the Fermi Large Area Telescope gamma-ray data from the Milky Way dwarf galaxies and halo to constrain dark matter scenarios,''
-  Astropart.\ Phys.\  {\bf 37}, 26 (2012)
-  doi:10.1016/j.astropartphys.2012.07.005
-  [arXiv:1203.6731 [astro-ph.IM]].
-  %%CITATION = doi:10.1016/j.astropartphys.2012.07.005;%%
-  %39 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{Baushev:2012ke}
-\bibitem{Baushev:2012ke}
-  A.~N.~Baushev, S.~Federici and M.~Pohl,
-  %``Spectral analysis of the gamma-ray background near the dwarf Milky Way satellite Segue 1: Improved limits on the cross section of neutralino dark matter annihilation,''
-  Phys.\ Rev.\ D {\bf 86}, 063521 (2012)
-  doi:10.1103/PhysRevD.86.063521
-  [arXiv:1205.3620 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevD.86.063521;%%
-  %13 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{Huang:2012yf}
-\bibitem{Huang:2012yf}
-  X.~Huang, Q.~Yuan, P.~F.~Yin, X.~J.~Bi and X.~Chen,
-  %``Constraints on the dark matter annihilation scenario of Fermi 130 GeV $\gamma$-ray line emission by continuous gamma-rays, Milky Way halo, galaxy clusters and dwarf galaxies observations,''
-  JCAP {\bf 1211}, 048 (2012)
-  Erratum: [JCAP {\bf 1305}, E02 (2013)]
-  doi:10.1088/1475-7516/2012/11/048, 10.1088/1475-7516/2013/05/E02
-  [arXiv:1208.0267 [astro-ph.HE]].
-  %%CITATION = doi:10.1088/1475-7516/2012/11/048, 10.1088/1475-7516/2013/05/E02;%%
-  %46 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{Ackermann:2013yva}
-\bibitem{Ackermann:2013yva}
-  M.~Ackermann {\it et al.} [Fermi-LAT Collaboration],
-  %``Dark matter constraints from observations of 25 Milky Way satellite galaxies with the Fermi Large Area Telescope,''
-  Phys.\ Rev.\ D {\bf 89}, 042001 (2014)
-  doi:10.1103/PhysRevD.89.042001
-  [arXiv:1310.0828 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevD.89.042001;%%
-  %361 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{Ackermann:2015zua}
-\bibitem{Ackermann:2015zua}
-  M.~Ackermann {\it et al.} [Fermi-LAT Collaboration],
-  %``Searching for Dark Matter Annihilation from Milky Way Dwarf Spheroidal Galaxies with Six Years of Fermi Large Area Telescope Data,''
-  Phys.\ Rev.\ Lett.\  {\bf 115}, no. 23, 231301 (2015)
-  doi:10.1103/PhysRevLett.115.231301
-  [arXiv:1503.02641 [astro-ph.HE]].
-  %%CITATION = doi:10.1103/PhysRevLett.115.231301;%%
-  %542 citations counted in INSPIRE as of 20 Jan 2018
-
-%\cite{Tsai:2012cs}
-\bibitem{Tsai:2012cs}
-  Y.~L.~S.~Tsai, Q.~Yuan and X.~Huang,
-  %``A generic method to constrain the dark matter model parameters from Fermi observations of dwarf spheroids,''
-  JCAP {\bf 1303}, 018 (2013)
-  doi:10.1088/1475-7516/2013/03/018
-  [arXiv:1212.3990 [astro-ph.HE]].
-  %%CITATION = doi:10.1088/1475-7516/2013/03/018;%%
-  %34 citations counted in INSPIRE as of 20 Jan 2018
-\end{thebibliography}
 
 \end{document}
