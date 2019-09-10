@@ -142,9 +142,9 @@ Notice that there are two sets of $J$-factors in Refs.~\cite{Geringer-Sameth:201
 Therefore, in Table.~\ref{Table:dsphs}, we choose the $J$-factor within a smaller integration angle as $\alpha_{\rm int}=\min\{\theta_{\rm max},0.5\}$.
 %\footnote{\red{Generally, $\theta_{\rm max}={\rm arcsin}\,(r_{\rm max}/D)$, where $r_{\rm max}$ is an estimate of distance from the center of dSph to the outermost member star and $D$ is the distance from Earth to the dSph.}}
 
-\red{
+%\red{
 In this work, as we mainly focus on the gamma-ray below $E_{\rm up}\equiv20\,\TeV$, the absorption effect of the signals, resulting from the interactions with the cosmic microwave background (CMB) and the Galactic photon field, is supposed to be negligible. For more detailed discussions, see Appendix~\ref{gamma_absorption}.
-}
+%}
 
 \begin{table*}
 \caption{\label{Table:dsphs}The astrophysical properties of nineteen selected dSphs within the LHAASO FOV.
@@ -323,24 +323,26 @@ Since LHAASO is still under-construction, at present we could only make a mimic 
 The procedure is as follows: Firstly, we calculate the expected counts of background event resulting from the incoming cosmic ray particles. Then we assume that there is no significant signals from DM annihilation, and make a Gaussian sampling around the background event counts $B$ to get a mimic total observational counts $N$.
 
 The energy resolution of WCDA is about tens of percents.
-We use wide energy bins ($E_{\rm max}/E_{\rm min}=3$ for each bin \red{in the energy range $700\,\GeV\sim20\,\TeV$}) in order to suppress the systematic errors induced by the reconstructed energy dispersion.
+We use wide energy bins ($E_{\rm max}/E_{\rm min}=3$ for each bin %\red{
+in the energy range $700\,\GeV\sim20\,\TeV$%}
+) in order to suppress the systematic errors induced by the reconstructed energy dispersion.
 In each energy bin, the background events $B$ from the hadronic cosmic-ray particles can be calculated by
 \begin{equation}\label{func:bkg}
   B=\int^{E_{\rm max}}_{E_{\rm min}}\int_{\Delta\Omega}\int_0^T\zeta_{cr}\cdot\Phi_{p}(E)\cdot A_{\rm eff}^{p}(E,\theta_{\rm zen}(t))\cdot\varepsilon_{p}(E)dtd\Omega dE,
 \end{equation}
 where $\Phi_{p}(E)$ is the flux of protons in the primary cosmic rays described by a single power-law spectrum, which is best-fitted by the observational datasets of experiments ATIC \cite{Panov:2011ak}, CREAM \cite{Yoon:2011aa} and RUNJOB \cite{Derbina:2005ta}.
 As the abundance of the rest particles in the cosmic ray is about 10\% of the proton's abundance, we introduce an additional factor $\zeta_{cr}=1.1$ to take the contributions of other particles into account. The observational time $T$ is taken to be one year.
-The integration is calculated in all the energy bins within a cone which is defined as $\Delta\Omega=2\pi\times[1-\cos(\max\{ \alpha_{\rm int}, \theta_c \})]$, where $\theta_c$ is the energy dependent angular resolution of LHAASO. In fact, $\theta_c$ varies from $2^\circ$ to $0.1^\circ$ with the increased photon energy \red{as described in the Fig. 45 of LHAASO Science White Paper \cite{Bai:2019khm}}.
+The integration is calculated in all the energy bins within a cone which is defined as $\Delta\Omega=2\pi\times[1-\cos(\max\{ \alpha_{\rm int}, \theta_c \})]$, where $\theta_c$ is the energy dependent angular resolution of LHAASO. In fact, $\theta_c$ varies from $2^\circ$ to $0.1^\circ$ with the increased photon energy as described in the Fig. 45 of LHAASO Science White Paper \cite{Bai:2019khm}.
 
 The effective area $A_{\rm eff}^{p}$ is derived from an interpolation calculation in the Science White Paper of LHAASO, which is a function of energy and zenith angle $\theta_{\rm zen}$ \cite{Bai:2019khm}.
 DSphs at different declinations correspond to different $\theta_{\rm zen}(t)$ functions, and finally result in different visibilities. In order to briefly show the visibility of each dSph, we list in Table~\ref{Table:dsphs} the effective time ratio $r_{\rm eff}$, which is determined by the proportion of observation time during which the zenith angle $\theta_{\rm zen}$ is smaller than $60^\circ$.
 
 With regard to the survival ratio $\varepsilon$ in the $\gamma/p$ discrimination on WCDA,
 in Ref.~\cite{Zha:2017vcs} the authors have provided an estimation for the quality factor $Q\equiv\varepsilon_{\gamma}/\sqrt{\varepsilon_{p}}$ at various energies, in which the proton survival rate $\varepsilon_{p}$ varies from 0.04\% to 0.11\% when the gamma survival rate $\varepsilon_{\gamma}$ is around $50\%$ for the energies above $0.6\,\TeV$. While as a more conservative choice in this work, we just set $\varepsilon_{p}$ to be $\sim$ 0.278\% when we keep $\varepsilon_{\gamma} \sim40.13\%$.
-\footnote{\red{Note that in this work we mainly focus on the gamma photons with energies higher than 700 GeV.
+\footnote{Note that in this work we mainly focus on the gamma photons with energies higher than 700 GeV.
     This energy range corresponds to $N_{\rm fit} > 20$ as shown in Ref. \cite{Zha:2017vcs}, thus most of the events with $N_{\rm fit} < 20$ are actually ignored here.
     Therefore, although the effective areas we used in this work are obtained with $N_{\rm fit} > 10$ in Ref.~\cite{Bai:2019khm} while the gamma/hadron separation are obtained with $N_{\rm fit}>20$~\cite{Zha:2017vcs}, their inconsistency in our interesting energy region is negligible.
-}}
+}
 
 
 The cosmic-ray electron/positron would share the same survival ratio with the gamma-ray, which is 40.13\%.
@@ -438,8 +440,8 @@ In this figure, we also displayed the comparison of the LHAASO sensitivity to th
 \label{fig:Lhaaso-combined}
 \end{figure*}
 
-Broadly speaking, the most strong LHAASO sensitivity to the DM annihilation cross section comes from the $\tau^{+}\tau^{-}$ annihilation channel, which is nearly close to $10^{-24}~\rm cm^{3}~s^{-1}$, for all the DM masses considered here. \red{For the $b\bar{b}$ channel, the MAGIC observation sets the most stringent constraint up to $\sim15$ TeV. Above $\sim15$ TeV, LHAASO is more sensitive to this channel. Besides, with regard to the $t\bar{t}$, $\tau^+\tau^-$, and $\rm W^+W^-$ channels, LHAASO are more sensitive beyond $\sim3 ~\rm TeV$, $\sim2 ~\rm TeV$, and $\sim 5 ~\rm TeV$, respectively, compared with the current limits set by other experiments.
-For the $\mu^{+}\mu^{-}$ channel, LHAASO has great sensitivity for the almost whole mass range from 1 TeV to 100 TeV.} Therefore, we can conclude that LHAASO will be able to set stringent constraints on the property of heavy DM particles, especially for those heavier than $\sim 10$ TeV.
+Broadly speaking, the most strong LHAASO sensitivity to the DM annihilation cross section comes from the $\tau^{+}\tau^{-}$ annihilation channel, which is nearly close to $10^{-24}~\rm cm^{3}~s^{-1}$, for all the DM masses considered here. For the $b\bar{b}$ channel, the MAGIC observation sets the most stringent constraint up to $\sim15$ TeV. Above $\sim15$ TeV, LHAASO is more sensitive to this channel. Besides, with regard to the $t\bar{t}$, $\tau^+\tau^-$, and $\rm W^+W^-$ channels, LHAASO are more sensitive beyond $\sim3 ~\rm TeV$, $\sim2 ~\rm TeV$, and $\sim 5 ~\rm TeV$, respectively, compared with the current limits set by other experiments.
+For the $\mu^{+}\mu^{-}$ channel, LHAASO has great sensitivity for the almost whole mass range from 1 TeV to 100 TeV. Therefore, we can conclude that LHAASO will be able to set stringent constraints on the property of heavy DM particles, especially for those heavier than $\sim 10$ TeV.
 
 \section{Conclusion and discussion}\label{sec:conclu}
 LHAASO is a newly planed under-construction wide FOV observatory to research on VHE gamma-ray astronomy with unprecedented sensitivity. Considering the fact that LHAASO will carry out its preliminary operation at the end of this year, it is timely to predict the physical perspective of LHAASO based on the simulated experimental data.
@@ -454,65 +456,41 @@ It is worthwhile to mention several systematic uncertainties arising from the de
 In spite of the existence of these uncertainties, our results still show that the LHAASO gamma-ray researches of dSphs would be a promising way of the DM indirect detection. It is believed that LHAASO will greatly enrich our knowledge about DM particles above ${\mathcal O}$(TeV).
 
 \begin{acknowledgments}
-\red{We would like to thank the anonymous referees for their helpful comments and suggestions.}  
+We would like to thank the anonymous referees for their helpful comments and suggestions.
 We are grateful to Ying-Ying Guo, Min Zha, Yan-Jin Wang, Yi-Qing Guo, Han-Rong Wu and Zhi-Guo Yao for helpful and engaging discussions.
 This work is supported by the National Key R~$\&$~D Program of China (Grant No. 2016YFA0400200), the National Natural Science Foundation of China (Grant Nos. U1738209, 11851303, 11835009), and the National Program for Support of Top-Notch Young Professionals.
 \end{acknowledgments}
 
 \appendix
-\red{
 \section{Gamma-ray absorption} \label{gamma_absorption}
 The VHE gamma-rays would be absorbed when traveling through the cosmos due to the $e^+e^-$ pair production.
 This effect has been well studied in the literature \cite{Franceschini:2008tp,Gould:1967zzb}.
 The differential optical depth $\mathrm{d}\tau/\mathrm{d}x$ of the cosmic photon gas depends on both of the $\gamma+\gamma$ collision cross section and the number density of the target photons.
-}
 
-\red{
 The $\gamma+\gamma\rightarrow e^++e^-$ cross section is
 \begin{equation}
   \sigma = \frac{1}{2}\pi r_0^2(1-\beta^2)\left[ (3-\beta^4)\ln\frac{1+\beta}{1-\beta}-2\beta(2-\beta^2) \right],
   \label{eq:cross_section}
 \end{equation}
 where $r_0=e^2/mc^2$ is the classical electron radius, $\beta$ is the velocity of the $e^+$ ($e^-$)  in the center-of-mass system.
-Assuming the energies of two interacting photons as $E$ and $E'$, we can define a variable
-\begin{equation}
-  s\equiv (EE'/2m^2c^4)(1-\cos\theta)
-  \label{eq:s_variable}
-\end{equation}
-for convenience, which is the function of $\beta$
-\begin{equation}
-  s = \frac{1}{1-\beta^2}.
-  \label{eq:s_beta}
-\end{equation}
-}
-
 \red{
-With photon number density expressed as $\mathrm{d}n=(1/2)n(E')\sin\theta\mathrm{d}E'\mathrm{d}\theta$, it is natural to obtain the differential optical depth
+  With an auxiliary variable $s\equiv (EE'/2m^2c^4)(1-\cos\theta)=1/(1-\beta^2)$ defined, the differential optical depth
 \begin{equation}
-  \frac{\mathrm{d}\tau}{\mathrm{d}x}=\int\int\frac{1}{2}\sigma n(E')(1-\cos\theta)\sin\theta\mathrm{d}E'\mathrm{d}\theta.
+  \frac{\mathrm{d}\tau}{\mathrm{d}x}=\int\int\frac{1}{2}\sigma n(E')(1-\cos\theta)\sin\theta\mathrm{d}E'\mathrm{d}\theta
   \label{eq:dtaudx}
 \end{equation}
-Defining an auxiliary variable
-\begin{equation}
-  \begin{aligned}
-  s_0 &= s / z, \\
-  z &= \frac{1}{2}(1-\cos\theta),
-  \end{aligned}
-  \label{eq:s0}
-\end{equation}
-we could invert the integral variable $\theta$ of Eq.~(\ref{eq:dtaudx}) to $s$
-\begin{equation}
-  \frac{\mathrm{d}\tau}{\mathrm{d}x}=\pi r_0^2\left( \frac{m^2c^4}{E} \right)^2\int^\infty_{m^2c^4/E}E'^{-2}n(E')\varphi\left[ s_0(E') \right]\mathrm{d}E',
+could be separated into two integrations
+  \begin{equation}
+    \left\{
+      \begin{aligned}
+        \frac{\mathrm{d}\tau}{\mathrm{d}x}&=\pi r_0^2\left( \frac{m^2c^4}{E} \right)^2\int^\infty_{m^2c^4/E}E'^{-2}n(E')\varphi\left[ s_0(E') \right]\mathrm{d}E'\\
+        \varphi\left[ s_0(E') \right] &= \frac{2}{\pi r_0^2}\int_{1}^{s_0}\sigma(s)\mathrm{d}s
+    \end{aligned}\right.,
   \label{eq:dtaudx_final}
-\end{equation}
-where
-\begin{equation}
-  \varphi\left[ s_0(E') \right] = \frac{2}{\pi r_0^2}\int_{1}^{s_0}\sigma(s)\mathrm{d}s.
-  \label{eq:phi_bar}
-\end{equation}
+  \end{equation}
+  where $s_0\equiv 2s/(1-\cos\theta)$. This formula is more convenient for the analytical analysis compared to the original one. The reader is referred to Ref.~\cite{Gould:1967zzb} for more details.
 }
 
-\red{
 For the CMB, the photon gas density follows a blackbody distribution
 \begin{equation}
   n(E') = (\hbar c)^{-3}(E'/\pi)^2\left( e^{E'/kT}-1 \right)^{-1},
@@ -520,11 +498,19 @@ For the CMB, the photon gas density follows a blackbody distribution
 \end{equation}
 where the temperature $T$ for CMB is approximately to be $2.73\,\mathrm{K}$.
 Adopting the distribution in Eq.~(\ref{eq:CMB_density}), the Ref.~\cite{Gould:1967zzb} has derived two asymptotic formulae for the solution of Eq.~(\ref{eq:dtaudx_final}).
-We could also directly calculate this integral with the general numerical methods.
+\red{Unfortunately, there was a typo in the Eq.(10) of Ref.~\cite{Gould:1967zzb}, where the term $-L(\omega_0)$ ought to be $-4L(\omega_0)$.
+  As a result, the asymptotic formulae ought to be
+  \begin{equation}
+    \begin{aligned}
+      f(\nu)&\rightarrow(\pi^2/3)\nu\ln(0.117/\nu), \nu\ll1 \\
+      f(\nu)&\rightarrow\sqrt{\pi}e^{-\nu}(\sqrt{\nu}+6/\sqrt{\nu}\dots), \nu\gg1
+    \end{aligned}.
+    \label{eq:asymptotic}
+  \end{equation}
+  Both of the Eq.~(\ref{eq:asymptotic}) and the numerical integral could lead to reasonable results.
 }
 
-\red{
-As a result, we directly calculate the Eq.~(\ref{eq:dtaudx_final}) for CMB, and show the corresponding survival rate $e^{-\tau}$ for source distances $100\,\kpc\sim1\,\Mpc$ in Fig.~\ref{fig:opacity}.
+Here, we directly calculate the Eq.~(\ref{eq:dtaudx_final}) for CMB, and show the corresponding survival rate $e^{-\tau}$ for source distances $100\,\kpc\sim1\,\Mpc$ in Fig.~\ref{fig:opacity}.
 The optical depth $\tau$ used here is just the product of the distance $d$ and the differential optical depth $\mathrm{d}\tau/\mathrm{d}x$.
 \begin{figure}[!htpb]
   \centering
@@ -540,30 +526,24 @@ Therefore, the absorption of CMB is negligible for our target sources whose dist
 %  \input{dsph.tex}
 %  \label{tab:dwarf_info_appendix}
 %\end{table}
-}
 
-\red{
-  In addition to the CMB, the infrared radiation component of interstellar radiation field (ISRF) would also absorb the gamma-ray.
-  The infrared radiation is composed of multiple kinds of emission from the cosmic dust.
-  Its distribution inside the Galaxy is much more complex than that of the CMB.
-  A widely adopted detailed model has been established to describe this distribution in Ref.~\cite{Strong:1998fr}.
-}
+In addition to the CMB, the infrared radiation component of interstellar radiation field (ISRF) would also absorb the gamma-ray.
+The infrared radiation is composed of multiple kinds of emission from the cosmic dust.
+Its distribution inside the Galaxy is much more complex than that of the CMB.
+A widely adopted detailed model has been established to describe this distribution in Ref.~\cite{Strong:1998fr}.
 
-\red{
-  Ref.~\cite{Zhang:2005tp} has adopted this model to perform a detailed calculation to analyse the gamma-ray attenuation for the $\mathrm{Sgr\,\,A^*}$ at Galactic center (GC), showing that the infrared radiation component would lead to an absorption $\lesssim5\%$ for the photon energies below $20\,\TeV$.
-  Note that the infrared radiation is supposed to be densest at the GC and would rapidly decrease along the axes of $R$ and $z$ in the cylindrical coordinate~\cite{Strong:1998fr}.
-  Therefore, the optical depth for the dSphs of interest in this work would be even much smaller than that of the $\mathrm{Sgr\,\,A^*}$.
-  %Especially, we could check the several brightest dSphs in this work, including the Segue I, Ursa Major II, Triangulum II, Usar Minor.
-  %Due to the large angles between these sources and the GC (see Table.~\ref{tab:dwarf_info_appendix}), the the ISRF density in their line of sights (LOSs) is always lower than that at the sun.
-  %It could be seen at Ref.~\cite{Strong:1998fr} that the ISRF density at the sun is about a magnitude lower than the GC.
-  %Therefore, as a raw estimation, the optical depth for these brightest dSphs would be about a magnitude smaller than the $\mathrm{Sgr A^*}$, which means an absorption $\sim2\%$ at $100\TeV$.
-  We thus could neglect the absorption of infrared radiation inside the Galaxy.
-}
+Ref.~\cite{Zhang:2005tp} has adopted this model to perform a detailed calculation to analyse the gamma-ray attenuation for the $\mathrm{Sgr\,\,A^*}$ at Galactic center (GC), showing that the infrared radiation component would lead to an absorption $\lesssim5\%$ for the photon energies below $20\,\TeV$.
+Note that the infrared radiation is supposed to be densest at the GC and would rapidly decrease along the axes of $R$ and $z$ in the cylindrical coordinate~\cite{Strong:1998fr}.
+Therefore, the optical depth for the dSphs of interest in this work would be even much smaller than that of the $\mathrm{Sgr\,\,A^*}$.
+%Especially, we could check the several brightest dSphs in this work, including the Segue I, Ursa Major II, Triangulum II, Usar Minor.
+%Due to the large angles between these sources and the GC (see Table.~\ref{tab:dwarf_info_appendix}), the the ISRF density in their line of sights (LOSs) is always lower than that at the sun.
+%It could be seen at Ref.~\cite{Strong:1998fr} that the ISRF density at the sun is about a magnitude lower than the GC.
+%Therefore, as a raw estimation, the optical depth for these brightest dSphs would be about a magnitude smaller than the $\mathrm{Sgr A^*}$, which means an absorption $\sim2\%$ at $100\TeV$.
+We thus could neglect the absorption of infrared radiation inside the Galaxy.
 
 \bibliographystyle{utphys}
 %\bibliographystyle{thubib}
 %\bibliography{/home/hedz/Pictures/citetemp}
 \bibliography{reference}
-
 
 \end{document}
